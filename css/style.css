@@ -28,7 +28,7 @@ body {
 #navigation {
     display: grid;
     position: relative;
-    margin: 20px auto 20px auto;
+    margin: 0 auto 70px auto;
 }
 
 div.search {
@@ -41,6 +41,12 @@ div.search {
     margin-right: auto;
     max-width: 90%;
     border-radius: 15px;
+}
+
+#navigation#spacer {
+    display: block;
+    height: 50px;
+    margin-bottom: 20px;
 }
 
 div.search div {
