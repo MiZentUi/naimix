@@ -135,6 +135,7 @@ div.search input:focus-visible {
     font-size: 25px;
     color: #ff5e00;
     margin: 0 0 15px 0;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 #vacancy span {
