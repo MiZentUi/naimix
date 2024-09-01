@@ -4,6 +4,14 @@ body {
     background-color: white;
 }
 
+#main {
+    display: block;
+}
+
+#vacancy {
+    display: none;
+}
+
 #head {
     display: grid;
     margin: 20px auto 20px auto;
