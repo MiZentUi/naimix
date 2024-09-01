@@ -120,4 +120,19 @@ div.search input:focus-visible {
     margin-bottom: 20px;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
+    color: gray;
+}
+
+#vacancies ul li h5 {
+    color: orange;
+    font-size: ;    
+}
+
+#project {
+    font-size: 25px;
+    color: orange;
+}
+
+div.vacancy {
+    padding: 20px;
 }

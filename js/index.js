@@ -3,9 +3,13 @@ function render_vacancies(json) {
     json.forEach((item, index) => {
         vacancies += `
             <li onclick="open_vacancy(${index});">
-                <span class="city">Город: ${item["Город Мос.обл, г. Орехово-Зуево"]}</span>
+                <h5 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5>
                 <br>
                 <span class="job">Должность: ${item["Должность Упаковщик/Разнорабочий"]}</span>
+                <br>
+                <span class="age">Возраст: ${item["Возраст от 18 до 55 (старше по согласованию)"]}</span>
+                <br>
+                <span class="city">Город: ${item["Город Мос.обл, г. Орехово-Зуево"]}</span>
             </li>
         `;
     });
