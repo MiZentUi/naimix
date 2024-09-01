@@ -1,3 +1,6 @@
+const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
+parser.parse().then((data) => {json = data; render_vacancies(data)});
+
 function render_vacancies(json) {
     let vacancies = "";
     json.forEach((item, index) => {
@@ -65,8 +68,6 @@ function back_to_main() {
 }
 
 window.onload = () => {
-    const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
-    parser.parse().then((data) => {json = data; render_vacancies(data)});
     let filter = document.getElementById("filter");
     let navigation = document.getElementById("navigation")
     document.getElementById("filter_button").addEventListener("click", () => {
