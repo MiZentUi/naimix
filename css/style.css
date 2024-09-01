@@ -19,7 +19,7 @@ body {
 }
 
 #main p {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
     font-size: 20px;
     color: #949494;
     margin: 0 20px 0 20px;
@@ -72,6 +72,7 @@ div.search input {
     border-width: 0;
     padding: 20px;
     font-size: 20px;
+    max-width: 70%;
     box-sizing: border-box;
 }
 
@@ -89,8 +90,20 @@ div.search input:focus-visible {
     margin: 0 auto 0 auto;
 }
 
+#vacancies ul {
+    padding: 0;
+    max-width: 90%;
+    margin: auto;
+}
+
 #vacancies ul li {
     list-style-type: none;
     border-radius: 15px;
-    background-color: lightgray;
+    background-color: #e2e2e2;
+    padding: 20px;
+    height: 100px;
+    margin-left: 0;
+    margin-bottom: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 15px;
 }

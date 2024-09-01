@@ -6,8 +6,9 @@ function render_vacancies(json) {
     json.forEach((item) => {
         vacancies += `
             <li>
-                <span class="city">${item["Город Мос.обл, г. Орехово-Зуево"]}</span>
-                <span class="job">${item["Должность Упаковщик/Разнорабочий"]}</span>
+                <span class="city">Город: ${item["Город Мос.обл, г. Орехово-Зуево"]}</span>
+                <br>
+                <span class="job">Должность: ${item["Должность Упаковщик/Разнорабочий"]}</span>
             </li>
         `;
     });
@@ -20,10 +21,11 @@ function render_vacancies(json) {
 }
 
 window.onload = () => {
-    let filter = document.getElementById("filter")
+    let filter = document.getElementById("filter");
     document.getElementById("filter_button").addEventListener("click", () => {
         console.log(filter.style.display)
         if (filter.style.display == "none" || filter.style.display == "") filter.style.display = "block";
         else filter.style.display = "none";
-    })
+    });
+    render_vacancies(json);
 }
