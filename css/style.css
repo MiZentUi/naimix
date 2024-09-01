@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+
 body {
     background-color: white;
 }
@@ -19,7 +21,7 @@ body {
 #main p {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    color: gray;
+    color: #949494;
     margin: 0 20px 0 20px;
 }
 
@@ -29,14 +31,43 @@ body {
     margin: 20px auto 20px auto;
 }
 
-.search {
+div.search {
+    display: flex;
     position: absolute;
-    border-radius: 15px;
-    height: 50px;
-    background-color: gray;
-    max-width: 90%;
+    background-color: lightgray;
     left: 0;
     right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
+    border-radius: 15px;
+}
+
+div.search div {
+    display: grid;
+    max-width: 50px;
+}
+
+div.search div span {
+    font-size: 40px;
+    color: orange;
+    user-select: none;
+    margin: auto;
+}
+
+div.search div#search_button {
+    flex: 1;
+}
+
+div.search div#filter_button {
+    flex: 3;
+}
+
+div.search input {
+    flex: 2;
+    height: 50px;
+    background-color: lightgray;
+    color: gray;
     margin: 0 auto 0 auto;
     border-width: 0;
     padding: 20px;
@@ -44,15 +75,22 @@ body {
     box-sizing: border-box;
 }
 
-.search:focus-visible {
+div.search input:focus-visible {
     outline: white auto 0;
 }
 
-.filter {
+#filter {
+    display: none;
     border-radius: 15px;
     height: 200px;
     width: 90%;
-    background-color: lightgray;
+    background-color: #e2e2e2;
     align-self: center;
     margin: 0 auto 0 auto;
+}
+
+#vacancies ul li {
+    list-style-type: none;
+    border-radius: 15px;
+    background-color: lightgray;
 }

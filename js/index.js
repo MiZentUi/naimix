@@ -18,3 +18,12 @@ function render_vacancies(json) {
     `;
     document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
+
+window.onload = () => {
+    let filter = document.getElementById("filter")
+    document.getElementById("filter_button").addEventListener("click", () => {
+        console.log(filter.style.display)
+        if (filter.style.display == "none" || filter.style.display == "") filter.style.display = "block";
+        else filter.style.display = "none";
+    })
+}
