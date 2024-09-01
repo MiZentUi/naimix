@@ -32,6 +32,16 @@ function open_vacancy(vacancy_index) {
     main.style.display = "none";
     render_vacancy(vacancy_index);
     vacancy_div.display = "block";
+    window.Telegram.WebApp.BackButton.show();
+    window.Telegram.WebApp.BackButton.onclick(back_to_main);
+}
+
+function back_to_main() {
+    let main = document.getElementById("main");
+    let vacancy_div = document.getElementById("vacancy")
+    main.style.display = "block";
+    vacancy_div.display = "none";
+    window.Telegram.WebApp.BackButton.hide();
 }
 
 window.onload = () => {
