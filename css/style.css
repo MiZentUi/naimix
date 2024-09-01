@@ -118,7 +118,7 @@ div.search input:focus-visible {
     list-style-type: none;
     border-radius: 15px;
     background-color: #e2e2e2;
-    padding: 30px;
+    padding: 20px 30px 20px 30px;
     margin-left: 0;
     margin-bottom: 20px;
     font-family: 'Roboto', Arial, sans-serif;
@@ -134,6 +134,7 @@ div.search input:focus-visible {
 #project {
     font-size: 25px;
     color: orange;
+    margin-bottom: 0 0 30px 0;
 }
 
 #vacancy span {
@@ -146,5 +147,5 @@ div.search input:focus-visible {
 #vacancy_card {
     background-color: #e2e2e2;
     border-radius: 15px;
-    padding: 10px;
+    padding: 20px;
 }
