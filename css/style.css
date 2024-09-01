@@ -65,7 +65,7 @@ div.search div {
 
 div.search div span {
     font-size: 35px;
-    color: orange;
+    color: #ff5e00;
     user-select: none;
     margin: auto;
     cursor: pointer;
@@ -127,13 +127,13 @@ div.search input:focus-visible {
 }
 
 #vacancies ul li h3 {
-    color: orange;
+    color: #ff5e00;
     margin: 0 0 10px -10px;
 }
 
 #project {
     font-size: 25px;
-    color: orange;
+    color: #ff5e00;
     margin: 0 0 15px 0;
 }
 
