@@ -1,4 +1,20 @@
-const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLss')
-parser.parse().then(data => console.log(data))
-(await fetch("https://docs.google.com/spreadsheets/d/16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs/gviz/tq?sheet=null")).text().then()
-let json = JSON.parse(json_text.substring(47, json_text.length - 2))
+const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
+parser.parse().then(data => json = data);
+
+function render_vacancies(json) {
+    let vacancies = "";
+    json.forEach((item) => {
+        vacancies += `
+            <li>
+                <span class="city">${item["Город Мос.обл, г. Орехово-Зуево"]}</span>
+                <span class="job">${item["Должность Упаковщик/Разнорабочий"]}</span>
+            </li>
+        `;
+    });
+    const html_vacancies_list = `
+        <ul>
+            ${vacancies}
+        </ul>
+    `;
+    document.getElementById("vacancies").innerHTML = html_vacancies_list;
+}
