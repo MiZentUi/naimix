@@ -10,7 +10,7 @@ body {
 
 #vacancy {
     display: none;
-    padding: 0 25px 0 25px;
+    padding: 0 10px 0 10px;
 }
 
 #head {
@@ -68,6 +68,7 @@ div.search div span {
     color: orange;
     user-select: none;
     margin: auto;
+    cursor: pointer;
 }
 
 div.search div#search_button {
@@ -112,6 +113,8 @@ div.search input:focus-visible {
 }
 
 #vacancies ul li {
+    user-select: none;
+    cursor: pointer;
     list-style-type: none;
     border-radius: 15px;
     background-color: #e2e2e2;
@@ -138,4 +141,10 @@ div.search input:focus-visible {
     font-size: 20px;
     color: gray;
     margin-bottom: 20px;
+}
+
+#vacancy_card {
+    background-color: #e2e2e2;
+    border-radius: 15px;
+    padding: 10px;
 }

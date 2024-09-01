@@ -4,7 +4,6 @@ function render_vacancies(json) {
         vacancies += `
             <li onclick="open_vacancy(${index});">
                 <h3 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5>
-                <br>
                 <span class="job">Должность: ${item["Должность Упаковщик/Разнорабочий"]}</span>
                 <br>
                 <span class="age">Возраст: ${item["Возраст от 18 до 55 (старше по согласованию)"]}</span>
@@ -24,9 +23,11 @@ function render_vacancies(json) {
 function render_vacancy(index) {
     let vacancy_div = document.getElementById("vacancy")
     let vacancy_div_html = `
-        <h1 id="project">${json[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h1>
-        <span id="job">Должность: ${json[index]["Должность Упаковщик/Разнорабочий"]}</h2>
-    `
+        <div id="vacancy_card">
+            <h1 id="project">${json[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h1>
+            <span id="job">Должность: ${json[index]["Должность Упаковщик/Разнорабочий"]}</h2>
+        </div>
+        `
     vacancy_div.innerHTML = vacancy_div_html;
 }
 
