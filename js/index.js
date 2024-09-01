@@ -27,7 +27,7 @@ function render_vacancy(index) {
 }
 
 function open_vacancy(vacancy_index) {
-    let main = document.getElementsByID("main");
+    let main = document.getElementById("main");
     let vacancy_div = document.getElementById("vacancy")
     main.style.display = "none";
     render_vacancy(vacancy_index);
