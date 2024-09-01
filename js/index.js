@@ -17,14 +17,13 @@ function render_vacancies(json) {
     document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
-const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
-parser.parse().then(data => json = data);
-render_vacancies(json);
 
 window.onload = () => {
+    const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
+    parser.parse().then(data => json = data).then(render_vacancies(json));
+    let filter = document.getElementById("filter");
+    let navigation = document.getElementById("navigation")
     document.getElementById("filter_button").addEventListener("click", () => {
-        let filter = document.getElementById("filter");
-        let navigation = document.getElementById("navigation")
         console.log(filter.style.display)
         if (filter.style.display == "none" || filter.style.display == "") {
             filter.style.display = "block";
