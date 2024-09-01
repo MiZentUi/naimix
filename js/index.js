@@ -3,7 +3,7 @@ function render_vacancies(json) {
     json.forEach((item, index) => {
         vacancies += `
             <li onclick="open_vacancy(${index});">
-                <h5 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5>
+                <h3 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5>
                 <br>
                 <span class="job">Должность: ${item["Должность Упаковщик/Разнорабочий"]}</span>
                 <br>

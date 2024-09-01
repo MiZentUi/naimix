@@ -114,8 +114,7 @@ div.search input:focus-visible {
     list-style-type: none;
     border-radius: 15px;
     background-color: #e2e2e2;
-    padding: 20px;
-    height: 100px;
+    padding: 40px;
     margin-left: 0;
     margin-bottom: 20px;
     font-family: 'Roboto', Arial, sans-serif;
@@ -123,9 +122,9 @@ div.search input:focus-visible {
     color: gray;
 }
 
-#vacancies ul li h5 {
+#vacancies ul li h3 {
     color: orange;
-    font-size: ;    
+    margin: -20px;
 }
 
 #project {
