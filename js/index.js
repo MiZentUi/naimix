@@ -33,7 +33,7 @@ function open_vacancy(vacancy_index) {
     render_vacancy(vacancy_index);
     vacancy_div.display = "block";
     window.Telegram.WebApp.BackButton.show();
-    window.Telegram.WebApp.BackButton.onclick(back_to_main);
+    window.Telegram.WebApp.BackButton.onClick(back_to_main);
 }
 
 function back_to_main() {
