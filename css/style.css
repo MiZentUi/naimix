@@ -4,13 +4,13 @@ body {
     background-color: white;
 }
 
-#main {
+#head {
     display: grid;
     margin: 20px auto 20px auto;
     width: 90%;
 }
 
-#main img {
+#head img {
     width: 100%;
     align-self: center;
     border-radius: 10px;
@@ -18,7 +18,7 @@ body {
     margin-bottom: 20px;
 }
 
-#main p {
+#head p {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 20px;
     color: #949494;
@@ -55,7 +55,7 @@ div.search div {
 }
 
 div.search div span {
-    font-size: 40px;
+    font-size: 35px;
     color: orange;
     user-select: none;
     margin: auto;
@@ -76,7 +76,7 @@ div.search input {
     color: gray;
     margin: 0 auto 0 auto;
     border-width: 0;
-    padding: 20px;
+    padding: 20px 0 20px 0;
     font-size: 20px;
     max-width: 70%;
     box-sizing: border-box;

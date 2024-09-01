@@ -1,8 +1,8 @@
 function render_vacancies(json) {
     let vacancies = "";
-    json.forEach((item) => {
+    json.forEach((item, index) => {
         vacancies += `
-            <li>
+            <li onclick="open_vacancy(${index});">
                 <span class="city">Город: ${item["Город Мос.обл, г. Орехово-Зуево"]}</span>
                 <br>
                 <span class="job">Должность: ${item["Должность Упаковщик/Разнорабочий"]}</span>
@@ -17,6 +17,22 @@ function render_vacancies(json) {
     document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
+function render_vacancy(index) {
+    let vacancy_div = document.getElementById("vacancy")
+    let vacancy_div_html = `
+        <h1 id="project">${json[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h1>
+        <h2 id="job">Должность: ${json[index]["Должность Упаковщик/Разнорабочий"]}</h2>
+    `
+    vacancy_div.innerHTML = vacancy_div_html;
+}
+
+function open_vacancy(vacancy_index) {
+    let main = document.getElementsByID("main");
+    let vacancy_div = document.getElementById("vacancy")
+    main.style.display = "none";
+    render_vacancy(vacancy_index);
+    vacancy_div.display = "block";
+}
 
 window.onload = () => {
     const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
