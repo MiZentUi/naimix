@@ -40,7 +40,7 @@ function back_to_main() {
     let main = document.getElementById("main");
     let vacancy_div = document.getElementById("vacancy")
     main.style.display = "block";
-    vacancy_div.display = "none";
+    vacancy_div.style.display = "none";
     window.Telegram.WebApp.BackButton.hide();
 }
 
