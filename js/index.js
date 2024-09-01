@@ -18,12 +18,13 @@ function render_vacancies(json) {
 }
 
 const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
-let filter = document.getElementById("filter");
-let navigation = document.getElementById("navigation")
+parser.parse().then(data => json = data);
+render_vacancies(json);
 
 window.onload = () => {
-    parser.parse().then(data => json = data);
     document.getElementById("filter_button").addEventListener("click", () => {
+        let filter = document.getElementById("filter");
+        let navigation = document.getElementById("navigation")
         console.log(filter.style.display)
         if (filter.style.display == "none" || filter.style.display == "") {
             filter.style.display = "block";
@@ -33,5 +34,4 @@ window.onload = () => {
             navigation.style.marginBottom = "70px";
         }
     });
-    render_vacancies(json);
 }
