@@ -10,6 +10,7 @@ body {
 
 #vacancy {
     display: none;
+    padding: 0 25px 0 25px;
 }
 
 #head {
@@ -114,7 +115,7 @@ div.search input:focus-visible {
     list-style-type: none;
     border-radius: 15px;
     background-color: #e2e2e2;
-    padding: 40px;
+    padding: 30px;
     margin-left: 0;
     margin-bottom: 20px;
     font-family: 'Roboto', Arial, sans-serif;
@@ -124,7 +125,7 @@ div.search input:focus-visible {
 
 #vacancies ul li h3 {
     color: orange;
-    margin: -20px;
+    margin: 0 0 10px -10px;
 }
 
 #project {
@@ -132,6 +133,9 @@ div.search input:focus-visible {
     color: orange;
 }
 
-div.vacancy {
-    padding: 20px;
+#vacancy span {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 20px;
+    color: gray;
+    margin-bottom: 20px;
 }

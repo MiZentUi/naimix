@@ -25,7 +25,7 @@ function render_vacancy(index) {
     let vacancy_div = document.getElementById("vacancy")
     let vacancy_div_html = `
         <h1 id="project">${json[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h1>
-        <h2 id="job">Должность: ${json[index]["Должность Упаковщик/Разнорабочий"]}</h2>
+        <span id="job">Должность: ${json[index]["Должность Упаковщик/Разнорабочий"]}</h2>
     `
     vacancy_div.innerHTML = vacancy_div_html;
 }
