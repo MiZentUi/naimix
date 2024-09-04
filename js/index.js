@@ -51,11 +51,12 @@ function open_vacancy(vacancy_index) {
     main.style.display = "none";
     render_vacancy(vacancy_index);
     vacancy_div.style.display = "block";
+    window.Telegram.WebApp.BackButton.onClick(back_to_main);
     window.Telegram.WebApp.BackButton.show();
     window.Telegram.WebApp.MainButton.text = "Оставить заявку";
     window.Telegram.WebApp.MainButton.color = "#ff5e00";
+    window.Telegram.WebApp.MainButton.onClick(open_request);
     window.Telegram.WebApp.MainButton.show();
-    window.Telegram.WebApp.BackButton.onClick(back_to_main);
 }
 
 function back_to_main() {
@@ -63,8 +64,15 @@ function back_to_main() {
     let vacancy_div = document.getElementById("vacancy")
     main.style.display = "block";
     vacancy_div.style.display = "none";
+    document.getElementById("request").style.display = "none";
     window.Telegram.WebApp.BackButton.hide();
     window.Telegram.WebApp.MainButton.hide();
+}
+
+function open_request() {
+    let request = document.getElementById("request");
+    request.style.display = "block";
+    window.Telegram.WebApp.MainButton.text = "Отправить";
 }
 
 window.onload = () => {
