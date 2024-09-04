@@ -151,7 +151,7 @@ div.search input:focus-visible {
     padding: 20px;
 }
 
-#request input {
+#request div input {
     flex: 2;
     height: 50px;
     background-color: #e2e2e2;
@@ -168,12 +168,12 @@ div.search input:focus-visible {
     background-color: #e2e2e2;
     border-radius: 15px;
     padding: 20px;
-
+    margin: 0 auto 20px auto;
 }
 
 #request div span {
     color: #ff5e00;
     font-family: 'Roboto', Arial, sans-serif;
-    font-size: 20px;
+    font-size: 15px;
 
 }
