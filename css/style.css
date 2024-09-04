@@ -182,3 +182,14 @@ div.search input:focus-visible {
     font-size: 15px;
     margin: 0 0 3px 10px;
 }
+
+#request div textarea {
+    background-color: white;
+    color: gray;
+    margin: 0 auto 0 auto;
+    border-width: 0;
+    padding: 20px;
+    font-size: 14px;
+    width: 100%;
+    border-radius: 15px;
+}
