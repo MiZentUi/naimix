@@ -143,6 +143,7 @@ div.search input:focus-visible {
     background-color: #e2e2e2;
     border-radius: 15px;
     padding: 20px;
+    margin-bottom: 20px;
 }
 
 #request div input {
@@ -169,6 +170,7 @@ div.search input:focus-visible {
 
 #request div {
     position: relative;
+    display: grid;
     background-color: #e2e2e2;
     border-radius: 15px;
     padding: 20px;
@@ -187,9 +189,10 @@ div.search input:focus-visible {
     background-color: white;
     color: gray;
     margin: 0 auto 0 auto;
+    align-self: center;
     border-width: 0;
     padding: 20px;
     font-size: 14px;
-    width: 100%;
+    width: 85%;
     border-radius: 15px;
 }
