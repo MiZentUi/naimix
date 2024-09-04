@@ -160,7 +160,7 @@ div.search input:focus-visible {
     border-width: 0;
     padding: 20px 0 20px 0;
     font-size: 20px;
-    max-width: 70%;
+    max-width: 90%;
     box-sizing: border-box;
 }
 
@@ -169,6 +169,11 @@ div.search input:focus-visible {
     border-radius: 15px;
     padding: 20px;
     margin: 0 auto 20px auto;
+}
+
+#request div span {
+    margin-bottom: 5px;
+
 }
 
 #request div span {
