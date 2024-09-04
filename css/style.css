@@ -52,12 +52,6 @@ div.search {
     border-radius: 15px;
 }
 
-#navigation#spacer {
-    display: block;
-    height: 50px;
-    margin-bottom: 20px;
-}
-
 div.search div {
     display: grid;
     max-width: 50px;
@@ -160,8 +154,14 @@ div.search input:focus-visible {
     border-width: 0;
     padding: 20px 0 20px 0;
     font-size: 20px;
+    width: 90%;
     max-width: 90%;
     box-sizing: border-box;
+    border-radius: 15px;
+}
+
+#request div input:focus-visible {
+    outline: white auto 0;
 }
 
 #request {
