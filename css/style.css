@@ -152,10 +152,9 @@ div.search input:focus-visible {
     color: gray;
     margin: 0 auto 0 auto;
     border-width: 0;
-    padding: 20px 0 20px 0;
-    font-size: 20px;
-    width: 90%;
-    max-width: 90%;
+    padding: 20px;
+    font-size: 14px;
+    width: 100%;
     box-sizing: border-box;
     border-radius: 15px;
 }
@@ -181,6 +180,6 @@ div.search input:focus-visible {
     color: #ff5e00;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
-    margin-bottom: 5px;
+    margin: 0 0 5px 0;
 
 }
