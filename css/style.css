@@ -172,17 +172,14 @@ div.search input:focus-visible {
     background-color: #e2e2e2;
     border-radius: 15px;
     padding: 20px;
+    max-width: 80%;
     margin: 0 auto 20px auto;
 }
 
-#request div span {
-    margin-bottom: 5px;
-
-}
-
-#request div span {
+#request div p {
     color: #ff5e00;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
-
+    margin-bottom: 5px;
+    
 }
