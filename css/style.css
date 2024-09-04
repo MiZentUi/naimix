@@ -82,7 +82,7 @@ div.search div#filter_button {
 div.search input {
     flex: 2;
     height: 50px;
-    background-color: #e2e2e2;
+    background-color: lightgray;
     color: gray;
     margin: 0 auto 0 auto;
     border-width: 0;
@@ -151,7 +151,7 @@ div.search input:focus-visible {
     padding: 20px;
 }
 
-#request div input {
+#request input {
     flex: 2;
     height: 50px;
     background-color: #e2e2e2;
@@ -167,4 +167,13 @@ div.search input:focus-visible {
 #request div {
     background-color: #e2e2e2;
     border-radius: 15px;
+    padding: 20px;
+
+}
+
+#request div span {
+    color: #ff5e00;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 20px;
+
 }
