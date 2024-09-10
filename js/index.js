@@ -29,7 +29,7 @@ function render_vacancies(json) {
     <br>`;
     for (let i in fields["cities"]) {
         cities_items += `
-            <li class="filter_item" onclick="filter_item_click(this);">${i}</li>
+            <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
         `;
     }
     document.getElementById("cities").innerHTML = cities_items;
@@ -105,8 +105,8 @@ window.onload = () => {
     });
 }
 
-function filter_item_click() {
-
+function filter_item_click(element) {
+    console.log(element);
 }
 
 document.getElementById("job").addEventListener("click", (element) => {
