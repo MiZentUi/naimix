@@ -29,7 +29,7 @@ function render_vacancies(json) {
     <br>`;
     for (let i in fields["cities"]) {
         cities_items += `
-            <li class="filter_item" onclick="filter_item_click(this);">${city}</li>
+            <li class="filter_item" onclick="filter_item_click(this);">${i}</li>
         `;
     }
     document.getElementById("cities").innerHTML = cities_items;
