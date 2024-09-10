@@ -27,11 +27,11 @@ function render_vacancies(json) {
             ${vacancies}
         </ul>
     <br>`;
-    fields["cities"].forEach((item) => {
+    for (let i in fields["cities"]) {
         cities_items += `
             <li class="filter_item" onclick="filter_item_click(this);">${city}</li>
         `;
-    });
+    }
     document.getElementById("cities").innerHTML = cities_items;
     document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
