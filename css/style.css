@@ -64,6 +64,7 @@ div.filter p {
     font-family: 'Roboto', Arial, sans-serif;
     color: #ff5e00;
     padding-left: 20px;
+    font-weight: bold;
     user-select: none;
 }
 
@@ -130,8 +131,8 @@ div.filter div span {
     list-style-type: none;
     background-color: #e2e2e2;
     border-radius: 10px;
-    padding: 5px 5px 5px 30px;
-    margin: 5px;
+    padding: 10px 10px 10px 30px;
+    margin: 10px;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     /* border-bottom: 1px solid lightgray; */

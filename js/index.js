@@ -1,16 +1,19 @@
 const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
 parser.parse().then((data) => {json = data; render_vacancies(data)});
-let fields = {"cities": {}, "jobs": {}}
+let fields = {"cities": {}, "jobs": {}, "housings": {}, "nutritions": {}, "payments": {}, "pay_rates": {}}
 
 function render_vacancies(json) {
-    let vacancies = "", cities_items = ""
+    let vacancies = "", cities_items = "", pay_rates_items = "", jobs_items = "";
     json.forEach((item, index) => {
         let city = item["Город Мос.обл, г. Орехово-Зуево"]
         let job = item["Должность Упаковщик/Разнорабочий"]
+        let pay_rate = item["Частота выплат Еженедельная без отсрочки"]
         if (!fields["cities"].hasOwnProperty(city)) fields["cities"][city] = [];
         if (!fields["jobs"].hasOwnProperty(job)) fields["jobs"][job] = [];
+        if (!fields["pay_rates"].hasOwnProperty(pay_rate)) fields["pay_rates"][pay_rate] = [];
         fields["cities"][city].push(index);
         fields["jobs"][job].push(index);
+        fields["pay_rates"][pay_rate].push(index);
         vacancies += `
             <li onclick="open_vacancy(${index});">
                 <h3 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5>
@@ -32,7 +35,19 @@ function render_vacancies(json) {
             <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
         `;
     }
+    for (let i in fields["jobs"]) {
+        jobs_items += `
+            <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
+        `;
+    }
+    for (let i in fields["pay_rates"]) {
+        pay_rates_items += `
+            <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
+        `;
+    }
     document.getElementById("cities").innerHTML = cities_items;
+    document.getElementById("jobs").innerHTML = cities_items;
+    document.getElementById("pay_rates").innerHTML = cities_items;
     document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
