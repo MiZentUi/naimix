@@ -103,6 +103,20 @@ function open_request() {
     window.Telegram.WebApp.MainButton.text = "Отправить";
 }
 
+function filter_item_click(event, ul_id) {
+    let ul = document.getElementById(ul_id);
+    let arrow = event.target.getElementsByTagName("span")[0]
+    if (ul.style.display == "none" || ul.style.display == "") {
+        ul.style.display = "block";
+        arrow.style.transform = "rotate(90deg)";
+        arrow.style.transition = "transform 0.5s";
+    } else {
+        ul.style.display = "none";
+        arrow.style.transform = "rotate(0)";
+        arrow.style.transition = "transform 0.5s";
+    }
+}
+
 window.onload = () => {
     let filter = document.getElementById("filter");
     let navigation = document.getElementById("navigation")
@@ -120,22 +134,7 @@ window.onload = () => {
             filter_arrow_span.style.transition = "transform 0.5s";
         }
     });
+    document.getElementById("job").addEventListener("click", event => filter_item_click(event, "jobs"))
+    document.getElementById("city").addEventListener("click", event => filter_item_click(event, "cities"))
+    document.getElementById("pay_rate").addEventListener("click", event => filter_item_click(event, "pay_rates"))
 }
-
-function filter_item_click(event, ul_id) {
-    let ul = document.getElementById(ul_id);
-    let arrow = event.target.getElementsByTagName("span")[0]
-    if (ul.style.display == "none" || ul.style.display == "") {
-        ul.style.display = "block";
-        arrow.style.transform = "rotate(90deg)";
-        arrow.style.transition = "transform 0.5s";
-    } else {
-        ul.style.display = "none";
-        arrow.style.transform = "rotate(0)";
-        arrow.style.transition = "transform 0.5s";
-    }
-}
-
-document.getElementById("job").addEventListener("click", event => filter_item_click(event, "jobs"))
-document.getElementById("city").addEventListener("click", event => filter_item_click(event, "cities"))
-document.getElementById("pay_rate").addEventListener("click", event => filter_item_click(event, "pay_rates"))
