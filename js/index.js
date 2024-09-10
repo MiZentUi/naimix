@@ -46,8 +46,8 @@ function render_vacancies(json) {
         `;
     }
     document.getElementById("cities").innerHTML = cities_items;
-    document.getElementById("jobs").innerHTML = cities_items;
-    document.getElementById("pay_rates").innerHTML = cities_items;
+    document.getElementById("jobs").innerHTML = jobs_items;
+    document.getElementById("pay_rates").innerHTML = pay_rates_items;
     document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
@@ -111,11 +111,13 @@ window.onload = () => {
         if (filter.style.display == "none" || filter.style.display == "") {
             filter.style.display = "block";
             navigation.style.marginBottom = "20px";
-            filter_arrow_span.style.transition = "rotate(90)"
+            filter_arrow_span.style.transform = "rotate(90deg)";
+            filter_arrow_span.style.transition = "transform 1s";
         } else {
             filter.style.display = "none";
             navigation.style.marginBottom = "70px";
-            filter_arrow_span.style.transition = "rotate(90)"
+            filter_arrow_span.style.transform = "rotate(0)";
+            filter_arrow_span.style.transition = "transform 1s";
         }
     });
 }
@@ -125,7 +127,15 @@ function filter_item_click(element) {
 }
 
 document.getElementById("job").addEventListener("click", (element) => {
-    element.innerHTML = `
-        
-    `
+    let jobs_ul = document.getElementById("jobs");
+    let arrow = element.getElementsByTagName("span")[0]
+    if (jobs_ul.style.display == "none" || jobs_ul.style.display == "") {
+        jobs_ul.style.display = "block";
+        arrow.style.transform = "rotate(90deg)";
+        arrow.style.transition = "transform 1s";
+    } else {
+        filter.style.display = "none";
+        arrow.style.transform = "rotate(0)";
+        arrow.style.transition = "transform 1s";
+    }
 })
