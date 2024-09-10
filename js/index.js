@@ -7,8 +7,8 @@ function render_vacancies(json) {
     json.forEach((item, index) => {
         let city = item["Город Мос.обл, г. Орехово-Зуево"]
         let job = item["Должность Упаковщик/Разнорабочий"]
-        if (fields["cities"].hasOwnProperty(city)) fields["cities"][city] = [];
-        if (fields["jobs"].hasOwnProperty(job)) fields["jobs"][job] = [];
+        if (!fields["cities"].hasOwnProperty(city)) fields["cities"][city] = [];
+        if (!fields["jobs"].hasOwnProperty(job)) fields["jobs"][job] = [];
         fields["cities"][city].push(index);
         fields["jobs"][job].push(index);
         vacancies += `
@@ -32,7 +32,7 @@ function render_vacancies(json) {
             <li class="filter_item" onclick="filter_item_click(this);">${city}</li>
         `;
     });
-    document.getElementById("city").getElementsByTagName("ul").innerHTML = cities_items;
+    document.getElementById("cities").innerHTML = cities_items;
     document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
