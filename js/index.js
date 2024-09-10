@@ -112,12 +112,12 @@ window.onload = () => {
             filter.style.display = "block";
             navigation.style.marginBottom = "20px";
             filter_arrow_span.style.transform = "rotate(90deg)";
-            filter_arrow_span.style.transition = "transform 1s";
+            filter_arrow_span.style.transition = "transform 0.5s";
         } else {
             filter.style.display = "none";
             navigation.style.marginBottom = "70px";
             filter_arrow_span.style.transform = "rotate(0)";
-            filter_arrow_span.style.transition = "transform 1s";
+            filter_arrow_span.style.transition = "transform 0.5s";
         }
     });
 }
@@ -126,16 +126,16 @@ function filter_item_click(element) {
     console.log(element);
 }
 
-document.getElementById("job").addEventListener("click", (element) => {
+document.getElementById("job").addEventListener("click", (event) => {
     let jobs_ul = document.getElementById("jobs");
-    let arrow = element.getElementsByTagName("span")[0]
+    let arrow = event.target.getElementsByTagName("span")[0]
     if (jobs_ul.style.display == "none" || jobs_ul.style.display == "") {
         jobs_ul.style.display = "block";
         arrow.style.transform = "rotate(90deg)";
-        arrow.style.transition = "transform 1s";
+        arrow.style.transition = "transform 0.5s";
     } else {
-        filter.style.display = "none";
+        jobs_ul.style.display = "none";
         arrow.style.transform = "rotate(0)";
-        arrow.style.transition = "transform 1s";
+        arrow.style.transition = "transform 0.5s";
     }
 })
