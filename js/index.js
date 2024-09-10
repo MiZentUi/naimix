@@ -122,20 +122,20 @@ window.onload = () => {
     });
 }
 
-function filter_item_click(element) {
-    console.log(element);
-}
-
-document.getElementById("job").addEventListener("click", (event) => {
-    let jobs_ul = document.getElementById("jobs");
+function filter_item_click(event, ul_id) {
+    let ul = document.getElementById(ul_id);
     let arrow = event.target.getElementsByTagName("span")[0]
-    if (jobs_ul.style.display == "none" || jobs_ul.style.display == "") {
-        jobs_ul.style.display = "block";
+    if (ul.style.display == "none" || ul.style.display == "") {
+        ul.style.display = "block";
         arrow.style.transform = "rotate(90deg)";
         arrow.style.transition = "transform 0.5s";
     } else {
-        jobs_ul.style.display = "none";
+        ul.style.display = "none";
         arrow.style.transform = "rotate(0)";
         arrow.style.transition = "transform 0.5s";
     }
-})
+}
+
+document.getElementById("job").addEventListener("click", event => filter_item_click(event, "jobs"))
+document.getElementById("city").addEventListener("click", event => filter_item_click(event, "cities"))
+document.getElementById("pay_rate").addEventListener("click", event => filter_item_click(event, "pay_rates"))
