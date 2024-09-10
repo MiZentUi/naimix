@@ -97,9 +97,10 @@ div.filter div span {
     user-select: none;
     border-bottom: 1px solid lightgray;
     height: 50px;
+    cursor: pointer;
 }
 
-#filter div:last-child {
+#filter div:nth-last-child(2) {
     border-bottom: 0;
 }
 
