@@ -1,17 +1,24 @@
 const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
 parser.parse().then((data) => {json = data; render_vacancies(data)});
+let fields = {"cities": {}, "jobs": {}}
 
 function render_vacancies(json) {
-    let vacancies = "";
+    let vacancies = "", cities_items = ""
     json.forEach((item, index) => {
+        let city = item["Город Мос.обл, г. Орехово-Зуево"]
+        let job = item["Должность Упаковщик/Разнорабочий"]
+        if (fields["cities"].hasOwnProperty(city)) fields["cities"][city] = [];
+        if (fields["jobs"].hasOwnProperty(job)) fields["jobs"][job] = [];
+        fields["cities"][city].push(index);
+        fields["jobs"][job].push(index);
         vacancies += `
             <li onclick="open_vacancy(${index});">
                 <h3 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5>
-                <span class="job">Должность</b>: ${item["Должность Упаковщик/Разнорабочий"]}</span>
+                <span class="job">Должность</b>: ${job}</span>
                 <br>
                 <span class="age">Возраст</b>: ${item["Возраст от 18 до 55 (старше по согласованию)"]}</span>
                 <br>
-                <span class="city">Город</b>: ${item["Город Мос.обл, г. Орехово-Зуево"]}</span>
+                <span class="city">Город</b>: ${city}</span>
             </li>
         <br>`;
     });
@@ -20,6 +27,12 @@ function render_vacancies(json) {
             ${vacancies}
         </ul>
     <br>`;
+    fields["cities"].forEach((item) => {
+        cities_items += `
+            <li class="filter_item" onclick="filter_item_click(this);">${city}</li>
+        `;
+    });
+    document.getElementById("city").getElementsByTagName("ul").innerHTML = cities_items;
     document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
@@ -78,14 +91,26 @@ function open_request() {
 window.onload = () => {
     let filter = document.getElementById("filter");
     let navigation = document.getElementById("navigation")
+    let filter_arrow_span = document.getElementById("filter_arrow").getElementsByTagName("span")[0];
     document.getElementById("filter_button").addEventListener("click", () => {
-        console.log(filter.style.display)
         if (filter.style.display == "none" || filter.style.display == "") {
             filter.style.display = "block";
             navigation.style.marginBottom = "20px";
+            filter_arrow_span.style.transition = "rotate(90)"
         } else {
             filter.style.display = "none";
             navigation.style.marginBottom = "70px";
+            filter_arrow_span.style.transition = "rotate(90)"
         }
     });
 }
+
+function filter_item_click() {
+
+}
+
+document.getElementById("job").addEventListener("click", (element) => {
+    element.innerHTML = `
+        
+    `
+})

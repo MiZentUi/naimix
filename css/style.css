@@ -40,7 +40,7 @@ body {
     margin: 0 auto 70px auto;
 }
 
-div.search {
+div.filter {
     display: flex;
     position: absolute;
     background-color: lightgray;
@@ -50,54 +50,71 @@ div.search {
     margin-right: auto;
     max-width: 90%;
     border-radius: 15px;
+    cursor: pointer;
 }
 
-div.search div {
+div.filter div {
     display: grid;
     max-width: 50px;
+    flex: 3;
 }
 
-div.search div span {
+div.filter p {
+    font-size: 20px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #ff5e00;
+    padding-left: 20px;
+    user-select: none;
+}
+
+div.filter div span {
     font-size: 35px;
     color: #ff5e00;
     user-select: none;
     margin: auto;
-    cursor: pointer;
 }
 
-div.search div#search_button {
-    flex: 1;
-}
-
-div.search div#filter_button {
-    flex: 3;
-}
-
-div.search input {
-    flex: 2;
-    height: 50px;
-    background-color: lightgray;
-    color: gray;
-    margin: 0 auto 0 auto;
-    border-width: 0;
-    padding: 20px 0 20px 0;
-    font-size: 20px;
-    max-width: 70%;
-    box-sizing: border-box;
-}
-
-div.search input:focus-visible {
-    outline: white auto 0;
+#filter_arrow {
+    margin: 0 0 0 auto;
 }
 
 #filter {
     display: none;
     border-radius: 15px;
-    height: 200px;
-    width: 90%;
     background-color: #e2e2e2;
     align-self: center;
     margin: 0 auto 0 auto;
+    padding: 70px 0 0px 0;
+    width: 90%;
+}
+
+#filter div {
+    display: flex;
+    font-size: 15px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #ff5e00;
+    user-select: none;
+    border-bottom: 1px solid lightgray;
+    height: 50px;
+}
+
+#filter div:last-child {
+    border-bottom: 0;
+}
+
+#filter div p {
+    padding-left: 20px;
+    vertical-align: center;
+}
+
+#filter div div {
+    display: grid;
+    width: 50px;
+    margin: 0 0 0 auto;
+}
+
+#filter div div span {
+    margin: auto;
 }
 
 #vacancies ul {
@@ -123,6 +140,7 @@ div.search input:focus-visible {
 #vacancies ul li h3 {
     color: #ff5e00;
     margin: 0 0 10px -10px;
+    display: none;
 }
 
 #project {
