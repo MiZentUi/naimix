@@ -175,6 +175,7 @@ div.filter div span {
 #vacancies ul li h3 {
     color: #ff5e00;
     font-size: 1.1em;
+    margin: 0;
 }
 
 #vacancies ul li div.name {
@@ -211,6 +212,7 @@ div.filter div span {
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 1px 1px 10px gray;
+    padding: 2px 0 20px 0;
 }
 
 #vacancy_card div.name {
@@ -231,7 +233,7 @@ div.filter div span {
 #request div input {
     flex: 2;
     height: 50px;
-    background-color: #e2e2e2;
+    background-color: white;
     color: gray;
     margin: 0 auto 0 auto;
     border-width: 0;
@@ -239,6 +241,7 @@ div.filter div span {
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
+    box-shadow: 0 0 5px gray inset;
     border-radius: 10px;
 }
 
@@ -259,13 +262,14 @@ div.filter div span {
     padding: 20px;
     max-width: 80%;
     margin: 0 auto 20px auto;
+    box-shadow: 1px 1px 10px gray;
 }
 
 #request div p {
     color: #ff5e00;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
-    margin: 0 0 5px 10px;
+    margin: 0 0 5px 20px;
 }
 
 #request div textarea {
