@@ -59,7 +59,7 @@ function render_vacancy(index) {
     let vacancy_div = document.getElementById("vacancy")
     let vacancy_div_html = `
         <div id="vacancy_card">
-            <h1 id="project">${json[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h1>`;
+            <div class="name"><h1 id="project">${json[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h1></div><div class="description">`;
     if (json[index]["Город Мос.обл, г. Орехово-Зуево"] != undefined) vacancy_div_html += `<span><b>Город</b>: ${json[index]["Город Мос.обл, г. Орехово-Зуево"]}</span><br>`;
     if (json[index]["Общая потребность 8 только день"] != undefined) vacancy_div_html += `<span><b>Общая потребность</b>: ${json[index]["Общая потребность 8 только день"]}</span><br>`;
     if (json[index]["М "] != undefined) vacancy_div_html += `<span><b>М</b>: ${json[index]["М "]}</span><br>`;
@@ -73,7 +73,7 @@ function render_vacancy(index) {
     if (json[index]["Оплата за смену МЕСТНЫЕ С 05.08.24 за смену 3500р СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"] != undefined) vacancy_div_html += `<span><b>Оплата за смену МЕСТНЫЕ</b>: ${json[index]["Оплата за смену МЕСТНЫЕ С 05.08.24 за смену 3500р СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]}</span><br>`;
     if (json[index]["Частота выплат Еженедельная без отсрочки"] != undefined) vacancy_div_html += `<span><b>Частота выплат</b>: ${json[index]["Частота выплат Еженедельная без отсрочки"]}</span><br>`;
     vacancy_div_html = vacancy_div_html.substring(0, vacancy_div_html.length - 1 - 4);
-    vacancy_div_html += `</div>`;
+    vacancy_div_html += `</divs></div>`;
     vacancy_div.innerHTML = vacancy_div_html;
 }
 
