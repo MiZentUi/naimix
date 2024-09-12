@@ -177,6 +177,10 @@ div.filter div span {
 
 #payment_from span {
     margin: auto 5px auto 5px;
+    font-size: 15px;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #ff5e00;
+    user-select: none;
 }
 
 #vacancies ul {
