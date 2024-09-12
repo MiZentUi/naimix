@@ -145,7 +145,7 @@ window.onload = () => {
         let payment_from = document.getElementById("payment_from");
         let arrow = event.target.getElementsByTagName("span")[0];
         if (payment_from.style.display == "none" || payment_from.style.display == "") {
-            payment_from.style.display = "flex !important";
+            payment_from.style.display = "flex";
             arrow.style.transform = "rotate(90deg)";
             arrow.style.transition = "transform 0.5s";
         } else {
