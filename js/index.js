@@ -109,7 +109,7 @@ function open_request() {
 
 function filter_item_click(event, ul_id) {
     let ul = document.getElementById(ul_id);
-    let arrow = event.target.getElementsByTagName("span")[0]
+    let arrow = event.currentTarget.getElementsByTagName("span")[0]
     if (ul.style.display == "none" || ul.style.display == "") {
         ul.style.display = "block";
         arrow.style.transform = "rotate(90deg)";
@@ -143,7 +143,7 @@ window.onload = () => {
     document.getElementById("pay_rate").addEventListener("click", event => filter_item_click(event, "pay_rates"));
     document.getElementById("payment").addEventListener("click", (event) => {
         let payment_from = document.getElementById("payment_from");
-        let arrow = event.target.getElementsByTagName("span")[0];
+        let arrow = event.currentTarget.getElementsByTagName("span")[0];
         if (payment_from.style.display == "none" || payment_from.style.display == "") {
             payment_from.style.display = "flex";
             arrow.style.transform = "rotate(90deg)";
