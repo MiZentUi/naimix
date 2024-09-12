@@ -126,7 +126,7 @@ div.filter div span {
 #filter ul {
     padding: 5px 0 5px 0;
     background-color: white;
-    margin: 5px;
+    margin: 0 20px;
     display: none;
     border-radius: 10px;
     box-shadow: 0 0 5px gray inset;
@@ -137,8 +137,7 @@ div.filter div span {
     cursor: pointer;
     list-style-type: none;
     background-color: white;
-    border-radius: 5px;
-    padding: 10px 10px 10px 30px;
+    padding: 10px 10px 10px 20px;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     border-radius: 0 0 10px 10px;
@@ -164,7 +163,7 @@ div.filter div span {
     list-style-type: none;
     border-radius: 10px;
     background-color: white;
-    padding: 20px 30px 20px 30px;
+    padding: 1px;
     margin-left: 0;
     margin-bottom: 20px;
     font-family: 'Roboto', Arial, sans-serif;
@@ -196,6 +195,7 @@ div.filter div span {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     color: gray;
+    margin-left: 30px;
     margin-bottom: 20px;
 }
 
