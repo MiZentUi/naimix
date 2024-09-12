@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 body {
-    background-color: white;
+    background-color: #e2e2e2;
 }
 
 #main {
@@ -25,6 +25,7 @@ body {
     border-radius: 10px;
     margin: 0 auto 0 auto;
     margin-bottom: 20px;
+    box-shadow: 1px 1px 10px gray;
 }
 
 #head p {
@@ -51,6 +52,7 @@ div.filter {
     max-width: 90%;
     border-radius: 15px;
     cursor: pointer;
+    box-shadow: 1px 1px 10px gray;
 }
 
 div.filter div {
@@ -82,7 +84,8 @@ div.filter div span {
 #filter {
     display: none;
     border-radius: 15px;
-    background-color: #e2e2e2;
+    background-color: white;
+    box-shadow: 1px 1px 10px gray;
     align-self: center;
     margin: 0 auto 0 auto;
     padding: 70px 0 0px 0;
@@ -95,7 +98,7 @@ div.filter div span {
     font-family: 'Roboto', Arial, sans-serif;
     color: #ff5e00;
     user-select: none;
-    border-bottom: 1px solid lightgray;
+    /* border-bottom: 1px solid lightgray; */
     height: 50px;
     cursor: pointer;
 }
@@ -122,7 +125,7 @@ div.filter div span {
 #filter ul {
     padding: 10px 0 10px 0;
     border-radius: 10px;
-    background-color: white;
+    background-color: #e2e2e2;
     margin: 0;
     display: none;
 }
@@ -131,7 +134,7 @@ div.filter div span {
     user-select: none;
     cursor: pointer;
     list-style-type: none;
-    background-color: #e2e2e2;
+    background-color: white;
     border-radius: 10px;
     padding: 10px 10px 10px 30px;
     margin: 10px;
@@ -152,11 +155,12 @@ div.filter div span {
 }
 
 #vacancies ul li {
+    box-shadow: 1px 1px 10px gray;
     user-select: none;
     cursor: pointer;
     list-style-type: none;
     border-radius: 15px;
-    background-color: #e2e2e2;
+    background-color: white;
     padding: 20px 30px 20px 30px;
     margin-left: 0;
     margin-bottom: 20px;
@@ -186,16 +190,17 @@ div.filter div span {
 }
 
 #vacancy_card {
-    background-color: #e2e2e2;
+    background-color: white;
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
+    box-shadow: 1px 1px 10px gray;
 }
 
 #request div input {
     flex: 2;
     height: 50px;
-    background-color: white;
+    background-color: #e2e2e2;
     color: gray;
     margin: 0 auto 0 auto;
     border-width: 0;
@@ -207,7 +212,7 @@ div.filter div span {
 }
 
 #request div input:focus-visible {
-    outline: white auto 0;
+    outline: #e2e2e2 auto 0;
 }
 
 #request {
@@ -218,7 +223,7 @@ div.filter div span {
 #request div {
     position: relative;
     display: grid;
-    background-color: #e2e2e2;
+    background-color: white;
     border-radius: 15px;
     padding: 20px;
     max-width: 80%;
@@ -233,7 +238,7 @@ div.filter div span {
 }
 
 #request div textarea {
-    background-color: white;
+    background-color: #e2e2e2;
     color: gray;
     margin: 0 auto 0 auto;
     align-self: center;
@@ -245,5 +250,5 @@ div.filter div span {
 }
 
 #request div textarea:focus-visible {
-    outline: white auto 0;
+    outline: #e2e2e2 auto 0;
 }
