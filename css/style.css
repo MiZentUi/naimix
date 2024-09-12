@@ -129,6 +129,7 @@ div.filter div span {
     margin: auto;
     background-color: white;
     border-radius: 10px;
+    display: none;
     box-shadow: 0 0 5px gray inset;
 }
 
@@ -170,6 +171,7 @@ div.filter div span {
     margin: auto 10px;
     width: inherit;
     padding: 10px;
+    color: gray;
     box-sizing: border-box;
 }
 

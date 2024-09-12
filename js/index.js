@@ -138,7 +138,20 @@ window.onload = () => {
             filter_arrow_span.style.transition = "transform 0.5s";
         }
     });
-    document.getElementById("job").addEventListener("click", event => filter_item_click(event, "jobs"))
-    document.getElementById("city").addEventListener("click", event => filter_item_click(event, "cities"))
-    document.getElementById("pay_rate").addEventListener("click", event => filter_item_click(event, "pay_rates"))
+    document.getElementById("job").addEventListener("click", event => filter_item_click(event, "jobs"));
+    document.getElementById("city").addEventListener("click", event => filter_item_click(event, "cities"));
+    document.getElementById("pay_rate").addEventListener("click", event => filter_item_click(event, "pay_rates"));
+    document.getElementById("payment").addEventListener("click", (event) => {
+        let payment_from = document.getElementById("payment_from");
+        let arrow = event.target.getElementsByTagName("span")[0];
+        if (payment_from.style.display == "none" || payment_from.style.display == "") {
+            payment_from.style.display = "flex";
+            arrow.style.transform = "rotate(90deg)";
+            arrow.style.transition = "transform 0.5s";
+        } else {
+            payment_from.style.display = "none";
+            arrow.style.transform = "rotate(0)";
+            arrow.style.transition = "transform 0.5s";
+        }
+    });
 }
