@@ -115,6 +115,10 @@ div.filter div span {
     margin: 0 0 0 auto;
 }
 
+:active {
+    outline: none;
+}
+
 #filter div.item div span {
     margin: auto;
 }
@@ -306,7 +310,7 @@ div.filter div span {
 }
 
 #request div textarea {
-    background-color: #e2e2e2;
+
     color: gray;
     margin: 0 auto 0 auto;
     align-self: center;
@@ -315,8 +319,11 @@ div.filter div span {
     font-size: 14px;
     width: 85%;
     border-radius: 10px;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px gray inset;
 }
 
 #request div textarea:focus-visible {
-    outline: #e2e2e2 auto 0;
+    outline-width: 0;
 }
