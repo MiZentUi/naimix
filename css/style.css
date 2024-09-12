@@ -50,7 +50,7 @@ div.filter {
     margin-left: auto;
     margin-right: auto;
     max-width: 90%;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
     box-shadow: 1px 1px 10px gray;
 }
@@ -68,6 +68,7 @@ div.filter p {
     padding-left: 20px;
     font-weight: bold;
     user-select: none;
+    margin: 15px 0 15px 0;
 }
 
 div.filter div span {
@@ -83,7 +84,7 @@ div.filter div span {
 
 #filter {
     display: none;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: white;
     box-shadow: 1px 1px 10px gray;
     align-self: center;
@@ -123,8 +124,7 @@ div.filter div span {
 }
 
 #filter ul {
-    padding: 10px 0 10px 0;
-    border-radius: 10px;
+    padding: 5px 0 5px 0;
     background-color: #e2e2e2;
     margin: 0;
     display: none;
@@ -135,9 +135,9 @@ div.filter div span {
     cursor: pointer;
     list-style-type: none;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px 10px 10px 30px;
-    margin: 10px;
+    margin: 5px;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     /* border-bottom: 1px solid lightgray; */
@@ -159,7 +159,7 @@ div.filter div span {
     user-select: none;
     cursor: pointer;
     list-style-type: none;
-    border-radius: 15px;
+    border-radius: 10px;
     background-color: white;
     padding: 20px 30px 20px 30px;
     margin-left: 0;
@@ -167,12 +167,19 @@ div.filter div span {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     color: gray;
+    position: relative;
 }
 
 #vacancies ul li h3 {
     color: #ff5e00;
     margin: 0 0 10px -10px;
-    display: none;
+}
+
+#vacancies ul li div {
+    background-color: #e2e2e2;
+    margin: 1px;
+    width: max-content;
+    height: 50px;
 }
 
 #project {
@@ -191,7 +198,7 @@ div.filter div span {
 
 #vacancy_card {
     background-color: white;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 1px 1px 10px gray;
@@ -208,7 +215,7 @@ div.filter div span {
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 #request div input:focus-visible {
@@ -224,7 +231,7 @@ div.filter div span {
     position: relative;
     display: grid;
     background-color: white;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 20px;
     max-width: 80%;
     margin: 0 auto 20px auto;
@@ -246,7 +253,7 @@ div.filter div span {
     padding: 20px;
     font-size: 14px;
     width: 85%;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 #request div textarea:focus-visible {

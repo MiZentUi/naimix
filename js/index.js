@@ -16,7 +16,7 @@ function render_vacancies(json) {
         fields["pay_rates"][pay_rate].push(index);
         vacancies += `
             <li onclick="open_vacancy(${index});">
-                <h3 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5>
+                <div><h3 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5></div>
                 <span class="job">Должность</b>: ${job}</span>
                 <br>
                 <span class="age">Возраст</b>: ${item["Возраст от 18 до 55 (старше по согласованию)"]}</span>
