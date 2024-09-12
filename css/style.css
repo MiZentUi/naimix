@@ -125,9 +125,11 @@ div.filter div span {
 
 #filter ul {
     padding: 5px 0 5px 0;
-    background-color: #e2e2e2;
-    margin: 0;
+    background-color: white;
+    margin: 5px;
     display: none;
+    border-radius: 10px;
+    box-shadow: 0 0 5px gray inset;
 }
 
 #filter ul li {
@@ -137,9 +139,10 @@ div.filter div span {
     background-color: white;
     border-radius: 5px;
     padding: 10px 10px 10px 30px;
-    margin: 5px;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
+    border-radius: 0 0 10px 10px;
+    margin: 0px 5px 0px 5px;
     /* border-bottom: 1px solid lightgray; */
 }
 

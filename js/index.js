@@ -31,17 +31,17 @@ function render_vacancies(json) {
         </ul>
     <br>`;
     for (let i in fields["cities"]) {
-        cities_items += `
+        if (i != undefined) cities_items += `
             <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
         `;
     }
     for (let i in fields["jobs"]) {
-        jobs_items += `
+        if (i != undefined) jobs_items += `
             <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
         `;
     }
     for (let i in fields["pay_rates"]) {
-        pay_rates_items += `
+        if (i != undefined) pay_rates_items += `
             <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
         `;
     }
