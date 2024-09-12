@@ -41,18 +41,6 @@ body {
     margin: 0 auto 70px auto;
 }
 
-#payment_from {
-    box-shadow: 0 0 5px gray inset;
-    width: 80%;
-    box-sizing: border-box;
-    padding: 10px;
-    margin: auto;
-    background-color: white;
-    border-radius: 10px;
-    display: none;
-    box-shadow: 0 0 5px gray inset;
-}
-
 div.filter {
     display: flex;
     position: absolute;
@@ -160,6 +148,18 @@ div.filter div span {
 #filter ul li p {
     margin: 0;
     color: #ff5e00;
+}
+
+#payment_from {
+    box-shadow: 0 0 5px gray inset;
+    width: 80%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    display: none !important;
+    box-shadow: 0 0 5px gray inset;
 }
 
 #payment_from input {
