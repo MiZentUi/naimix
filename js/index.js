@@ -7,21 +7,25 @@ function render_vacancies(json) {
     json.forEach((item, index) => {
         let city = item["Город Мос.обл, г. Орехово-Зуево"]
         let job = item["Должность Упаковщик/Разнорабочий"]
-        let pay_rate = item["Частота выплат Еженедельная без отсрочки"]
+        let pay_rate = item["Частота выплат Еженедельно без отсрочки"]
+        if (pay_rate != undefined) {
+            if (!fields["pay_rates"].hasOwnProperty(pay_rate)) fields["pay_rates"][pay_rate] = [];
+            fields["pay_rates"][pay_rate].push(index);
+        }
         if (!fields["cities"].hasOwnProperty(city)) fields["cities"][city] = [];
         if (!fields["jobs"].hasOwnProperty(job)) fields["jobs"][job] = [];
-        if (!fields["pay_rates"].hasOwnProperty(pay_rate)) fields["pay_rates"][pay_rate] = [];
         fields["cities"][city].push(index);
         fields["jobs"][job].push(index);
-        fields["pay_rates"][pay_rate].push(index);
         vacancies += `
             <li onclick="open_vacancy(${index});">
-                <div><h3 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5></div>
-                <span class="job">Должность</b>: ${job}</span>
-                <br>
-                <span class="age">Возраст</b>: ${item["Возраст от 18 до 55 (старше по согласованию)"]}</span>
-                <br>
-                <span class="city">Город</b>: ${city}</span>
+                <div class="name"><h3 class="project">${item["Проект КСП Стеклозавод Орехово-Зуево"]}</h5></div>
+                <div class="description">
+                    <span class="job">Должность</b>: ${job}</span>
+                    <br>
+                    <span class="age">Возраст</b>: ${item["Возраст от 18 до 55 (старше по согласованию)"]}</span>
+                    <br>
+                    <span class="city">Город</b>: ${city}</span>
+                </div>
             </li>
         <br>`;
     });
