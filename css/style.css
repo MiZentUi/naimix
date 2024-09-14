@@ -152,7 +152,7 @@ div.filter div span {
 
 #payment_from {
     box-shadow: 0 0 5px gray inset;
-    width: 80%;
+    width: 85%;
     box-sizing: border-box;
     padding: 10px;
     margin: auto;
@@ -316,7 +316,7 @@ div.filter div span {
     border-width: 0;
     padding: 20px;
     font-size: 14px;
-    width: 85%;
+    width: 100%;
     border-radius: 10px;
     background-color: white;
     box-sizing: border-box;
