@@ -107,7 +107,7 @@ function open_request() {
     window.Telegram.WebApp.MainButton.text = "Отправить";
 }
 
-function filter_item_click(event, ul_id) {
+function filter_click(event, ul_id) {
     let ul = document.getElementById(ul_id);
     let arrow = event.currentTarget.getElementsByTagName("span")[0]
     if (ul.style.display == "none" || ul.style.display == "") {
@@ -119,6 +119,10 @@ function filter_item_click(event, ul_id) {
         arrow.style.transform = "rotate(0)";
         arrow.style.transition = "transform 0.5s";
     }
+}
+
+function filter_item_click(item) {
+    console.log(item);
 }
 
 window.onload = () => {
@@ -138,9 +142,9 @@ window.onload = () => {
             filter_arrow_span.style.transition = "transform 0.5s";
         }
     });
-    document.getElementById("job").addEventListener("click", event => filter_item_click(event, "jobs"));
-    document.getElementById("city").addEventListener("click", event => filter_item_click(event, "cities"));
-    document.getElementById("pay_rate").addEventListener("click", event => filter_item_click(event, "pay_rates"));
+    document.getElementById("job").addEventListener("click", event => filter_click(event, "jobs"));
+    document.getElementById("city").addEventListener("click", event => filter_click(event, "cities"));
+    document.getElementById("pay_rate").addEventListener("click", event => filter_click(event, "pay_rates"));
     document.getElementById("payment").addEventListener("click", (event) => {
         let payment_from = document.getElementById("payment_from");
         let arrow = event.currentTarget.getElementsByTagName("span")[0];
