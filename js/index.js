@@ -132,12 +132,12 @@ window.onload = () => {
     document.getElementById("filter_button").addEventListener("click", () => {
         if (filter.style.display == "none" || filter.style.display == "") {
             filter.style.display = "block";
-            filter_button.style.position = "relative";
+            filter_button.style.position = "absolute";
             filter_arrow_span.style.transform = "rotate(90deg)";
             filter_arrow_span.style.transition = "transform 0.5s";
         } else {
             filter.style.display = "none";
-            filter_button.style.position = "absolute";
+            filter_button.style.position = "relative";
             filter_arrow_span.style.transform = "rotate(0)";
             filter_arrow_span.style.transition = "transform 0.5s";
         }
