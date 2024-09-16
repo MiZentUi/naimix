@@ -30,7 +30,7 @@ body {
 
 #head p {
     font-family: 'Roboto', Arial, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: #949494;
     margin: 0 20px 0 20px;
 }
@@ -38,7 +38,7 @@ body {
 #navigation {
     display: flex;
     position: relative;
-    margin: 0 auto 90px auto;
+    margin: 0 auto 20px auto;
 }
 
 div.filter {
@@ -46,6 +46,7 @@ div.filter {
     position: absolute;
     background-color: #e2e2e2;
     left: 0;
+    width: 100%;
     right: 0;
     margin-left: auto;
     margin-right: auto;
