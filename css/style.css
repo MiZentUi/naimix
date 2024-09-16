@@ -38,7 +38,7 @@ body {
 #navigation {
     display: grid;
     position: relative;
-    margin: 0 auto 70px auto;
+    margin: 0 auto 90px auto;
 }
 
 div.filter {
