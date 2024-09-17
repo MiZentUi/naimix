@@ -144,7 +144,7 @@ div.filter div span {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     border-radius: 10px;
-    margin: 0px 5px 0px 5px;
+    margin: 0px 5px 5px 5px;
 }
 
 #filter ul li p {

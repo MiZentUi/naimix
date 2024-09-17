@@ -126,11 +126,29 @@ function filter_item_click(item) {
     if (item.className.includes("active")) {
         filter_set[item.getAttribute("data")].delete(item.getElementsByTagName("p")[0].innerText);
         item.className = item.className.split(" ")[0];
+        item.style.backgroundColor = "white";
     }
     else {
         filter_set[item.getAttribute("data")].add(item.getElementsByTagName("p")[0].innerText);
+        item.style.backgroundColor = "lightgray";
         item.className += " active";
     }
+}
+
+function filter_vacancies() {
+    let filtered_indexes = new Set();
+    for (let [k, v] in filter_set) {
+        if (filtered_indexes.size == 0) {
+            for (let i in filter[k][v]) {
+                filtered_indexes.add(i);
+            }
+        } else {
+            for (let i in filtered_indexes) {
+                if (!filter[k][v].includes(i)) filtered_indexes.delete(i);
+            }
+        }
+    }
+    console.log(filtered_indexes);
 }
 
 window.onload = () => {
