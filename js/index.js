@@ -53,7 +53,7 @@ function render_vacancies(json) {
     document.getElementById("cities").innerHTML = cities_items;
     document.getElementById("jobs").innerHTML = jobs_items;
     document.getElementById("pay_rates").innerHTML = pay_rates_items;
-    document.getElementById("vacancies").innerHTML = html_vacancies_list;
+    // document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
 function render_vacancy(index) {
@@ -109,6 +109,14 @@ function open_request() {
 }
 
 function filter_click(event, ul_id) {
+    [...document.getElementsByClassName("item")].forEach((item) => {
+        arrow = item.getElementsByTagName("span")[0];
+        arrow.style.transform = "rotate(0)";
+        arrow.style.transition = "transform 0.5s";
+    });
+    [...document.getElementById("filter").getElementsByTagName("ul")].forEach((item) => {
+        item.style.display = "none";
+    });
     let ul = document.getElementById(ul_id);
     let arrow = event.currentTarget.getElementsByTagName("span")[0]
     if (ul.style.display == "none" || ul.style.display == "") {
