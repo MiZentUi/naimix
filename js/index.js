@@ -178,8 +178,6 @@ function filter_vacancies() {
     render_filter()
 }
 
-function
-
 window.onload = () => {
     let filter = document.getElementById("filter");
     let filter_button = document.getElementById("filter_button");
