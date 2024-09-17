@@ -127,14 +127,14 @@ function filter_click(event, ul_id) {
 }
 
 function filter_item_click(item) {
-    if (item.className.includes("active")) {
-        filter_set[item.getAttribute("data")].delete(item.getElementsByTagName("p")[0].innerText);
-        item.className = item.className.split(" ")[0];
-        item.style.backgroundColor = "white";
-    }
-    else {
+    [...item.parentNode.getElementsByClassName("item")].forEach((i) => {
+        filter_set[i.getAttribute("data")].delete(i.getElementsByTagName("p")[0].innerText);
+        i.className = i.className.split(" ")[0];
+        i.style.backgroundColor = "white";
+    });
+    if (!item.className.includes("active")) {
         filter_set[item.getAttribute("data")].add(item.getElementsByTagName("p")[0].innerText);
-        item.style.backgroundColor = "lightgray";
+        item.style.backgroundColor = "#e2e2e2";
         item.className += " active";
     }
     filter_vacancies();
