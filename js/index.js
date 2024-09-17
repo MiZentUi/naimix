@@ -1,7 +1,7 @@
 const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
 parser.parse().then((data) => {json = data; render_vacancies(data)});
 let fields = {"cities": {}, "jobs": {}, "housings": {}, "nutritions": {}, "payments": {}, "pay_rates": {}}
-let filter_set = {"cities": [], "jobs": [], "housings": [], "nutritions": [], "payments": [], "pay_rates": []}
+let filter_set = {"cities": new Set(), "jobs": new Set(), "housings": new Set(), "nutritions": new Set(), "payments": new Set(), "pay_rates": new Set()}
 
 function render_vacancies(json) {
     let vacancies = "", cities_items = "", pay_rates_items = "", jobs_items = "";
@@ -124,7 +124,7 @@ function filter_click(event, ul_id) {
 
 function filter_item_click(item) {
     if (item.className.includes("active")) {
-        delete filter_set[item.getAttribute("data")][item.getAttribute("data").indexOf(item.getElementsByTagName("p")[0].innerText)];
+        filter_set[item.getAttribute("data")].delete([item.getElementsByTagName("p")[0].innerText]);
         item.className = item.className.split()[1];
     }
     else {
