@@ -110,7 +110,7 @@ function open_request() {
 
 function filter_click(event, ul_id) {
     [...document.getElementsByClassName("item")].forEach((item) => {
-        arrow = item.getElementsByTagName("span")[0];
+        let arrow = item.getElementsByTagName("span")[0];
         arrow.style.transform = "rotate(0)";
         arrow.style.transition = "transform 0.5s";
     });
@@ -153,11 +153,15 @@ function render_filter(indexes) {
             <li onclick="open_vacancy(${index});">
                 <div class="name"><h3 class="project">${json[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h5></div>
                 <div class="description">
-                    <span class="job">Должность</b>: ${job}</span>
+                    <span class="job"><b>Должность</b>: ${job}</span>
                     <br>
-                    <span class="age">Возраст</b>: ${json[index]["Возраст от 18 до 55 (старше по согласованию)"]}</span>
+                    <span class="age"><b>Возраст</b>: ${json[index]["Возраст от 18 до 55 (старше по согласованию)"]}</span>
                     <br>
-                    <span class="city">Город</b>: ${city}</span>
+                    <span class="city"><b>Город</b>: ${city}</span>
+                    <br>
+                    <span class="payment1"><b>Оплата за смену ВАХТА</b> ${json[index]["Оплата за смену ВАХТА с 05.08.24 за смену 3500р ( СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]}</span>
+                    <br>
+                    <span class="payment2"><b>Оплата за смену МЕСТНЫЕ</b> ${json[index]["Оплата за смену МЕСТНЫЕ С 05.08.24 за смену 3500р СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]}</span>
                 </div>
             </li>
         <br>`;
