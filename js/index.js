@@ -1,6 +1,7 @@
 const parser = new PublicGoogleSheetsParser('16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs', {"useFormat": true});
 parser.parse().then((data) => {json = data; render_vacancies(data)});
 let fields = {"cities": {}, "jobs": {}, "housings": {}, "nutritions": {}, "payments": {}, "pay_rates": {}}
+let filter_set = {"cities": [], "jobs": [], "housings": [], "nutritions": [], "payments": [], "pay_rates": []}
 
 function render_vacancies(json) {
     let vacancies = "", cities_items = "", pay_rates_items = "", jobs_items = "";
@@ -36,17 +37,17 @@ function render_vacancies(json) {
     <br>`;
     for (let i in fields["cities"]) {
         if (i != undefined) cities_items += `
-            <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
+            <li class="filter_item" data="cities" onclick="filter_item_click(this);"><p>${i}</p></li>
         `;
     }
     for (let i in fields["jobs"]) {
         if (i != undefined) jobs_items += `
-            <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
+            <li class="filter_item" data="jobs" onclick="filter_item_click(this);"><p>${i}</p></li>
         `;
     }
     for (let i in fields["pay_rates"]) {
         if (i != undefined) pay_rates_items += `
-            <li class="filter_item" onclick="filter_item_click(this);"><p>${i}</p></li>
+            <li class="filter_item" data="pay_rates" onclick="filter_item_click(this);"><p>${i}</p></li>
         `;
     }
     document.getElementById("cities").innerHTML = cities_items;
@@ -122,7 +123,14 @@ function filter_click(event, ul_id) {
 }
 
 function filter_item_click(item) {
-    console.log(item);
+    if (item.className.includes("active")) {
+        delete filter_set[item.getAttribute("data")][item.getAttribute("data").indexOf(item.getElementsByTagName("p")[0].innerText)];
+        item.className = item.className.split()[1];
+    }
+    else {
+        filter_set[item.getAttribute("data")].add(item.getElementsByTagName("p")[0].innerText);
+        item.className += "active";
+    }
 }
 
 window.onload = () => {
