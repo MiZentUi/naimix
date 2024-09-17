@@ -139,13 +139,13 @@ function filter_vacancies() {
     let filtered_indexes = new Set();
     for (let [k, v] in filter_set) {
         if (filtered_indexes.size == 0) {
-            for (let i in filter[k][v]) {
+            for (let i in fields[k][v]) {
                 filtered_indexes.add(i);
             }
         } else {
-            for (let i in filtered_indexes) {
+            filtered_indexes.forEach((i) => {
                 if (!filter[k][v].includes(i)) filtered_indexes.delete(i);
-            }
+            });
         }
     }
     console.log(filtered_indexes);
