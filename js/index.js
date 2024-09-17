@@ -105,20 +105,20 @@ function open_request() {
 }
 
 function filter_click(event, ul_id) {
-    [...document.getElementsByClassName("item")].forEach((item) => {
-        let arrow = item.getElementsByTagName("span")[0];
-        arrow.style.transform = "rotate(0)";
-        arrow.style.transition = "transform 0.5s";
-    });
-    [...document.getElementById("filter").getElementsByTagName("ul")].forEach((item) => {
-        item.style.display = "none";
-    });
     let ul = document.getElementById(ul_id);
     let arrow = event.currentTarget.getElementsByTagName("span")[0]
     if (ul.style.display == "none" || ul.style.display == "") {
         ul.style.display = "block";
         arrow.style.transform = "rotate(90deg)";
         arrow.style.transition = "transform 0.5s";
+        [...document.getElementsByClassName("item")].forEach((item) => {
+            let arrow = item.getElementsByTagName("span")[0];
+            arrow.style.transform = "rotate(0)";
+            arrow.style.transition = "transform 0.5s";
+        });
+        [...document.getElementById("filter").getElementsByTagName("ul")].forEach((item) => {
+            item.style.display = "none";
+        });
     } else {
         ul.style.display = "none";
         arrow.style.transform = "rotate(0)";
@@ -127,15 +127,19 @@ function filter_click(event, ul_id) {
 }
 
 function filter_item_click(item) {
-    [...item.parentNode.getElementsByClassName("item")].forEach((i) => {
-        filter_set[i.getAttribute("data")].delete(i.getElementsByTagName("p")[0].innerText);
-        i.className = i.className.split(" ")[0];
-        i.style.backgroundColor = "white";
-    });
     if (!item.className.includes("active")) {
+        [...item.parentNode.getElementsByClassName("filter_item")].forEach((i) => {
+            filter_set[i.getAttribute("data")].delete(i.getElementsByTagName("p")[0].innerText);
+            i.className = i.className.split(" ")[0];
+            i.style.backgroundColor = "white";
+        });
         filter_set[item.getAttribute("data")].add(item.getElementsByTagName("p")[0].innerText);
         item.style.backgroundColor = "#e2e2e2";
         item.className += " active";
+    } else {
+        filter_set[item.getAttribute("data")].delete(item.getElementsByTagName("p")[0].innerText);
+        item.className = item.className.split(" ")[0];
+        item.style.backgroundColor = "white";
     }
     filter_vacancies();
 }
