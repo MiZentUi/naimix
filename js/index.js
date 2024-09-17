@@ -143,7 +143,7 @@ function render_filter(indexes) {
         let job = json[index]["Должность Упаковщик/Разнорабочий"]
         vacancies += `
             <li onclick="open_vacancy(${index});">
-                <div class="name"><h3 class="project">${josn[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h5></div>
+                <div class="name"><h3 class="project">${json[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h5></div>
                 <div class="description">
                     <span class="job">Должность</b>: ${job}</span>
                     <br>
@@ -175,7 +175,7 @@ function filter_vacancies() {
             }
         })
     }
-    render_filter()
+    render_filter(filtered_indexes);
 }
 
 window.onload = () => {
