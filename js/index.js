@@ -125,7 +125,7 @@ function filter_click(event, ul_id) {
 function filter_item_click(item) {
     if (item.className.includes("active")) {
         filter_set[item.getAttribute("data")].delete([item.getElementsByTagName("p")[0].innerText]);
-        item.className = item.className.split()[1];
+        item.className = item.className.split(" ")[1];
     }
     else {
         filter_set[item.getAttribute("data")].add(item.getElementsByTagName("p")[0].innerText);
