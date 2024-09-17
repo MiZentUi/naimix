@@ -108,9 +108,6 @@ function filter_click(event, ul_id) {
     let ul = document.getElementById(ul_id);
     let arrow = event.currentTarget.getElementsByTagName("span")[0]
     if (ul.style.display == "none" || ul.style.display == "") {
-        ul.style.display = "block";
-        arrow.style.transform = "rotate(90deg)";
-        arrow.style.transition = "transform 0.5s";
         [...document.getElementsByClassName("item")].forEach((item) => {
             let arrow = item.getElementsByTagName("span")[0];
             arrow.style.transform = "rotate(0)";
@@ -119,6 +116,9 @@ function filter_click(event, ul_id) {
         [...document.getElementById("filter").getElementsByTagName("ul")].forEach((item) => {
             item.style.display = "none";
         });
+        ul.style.display = "block";
+        arrow.style.transform = "rotate(90deg)";
+        arrow.style.transition = "transform 0.5s";
     } else {
         ul.style.display = "none";
         arrow.style.transform = "rotate(0)";
