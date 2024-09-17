@@ -133,23 +133,52 @@ function filter_item_click(item) {
         item.style.backgroundColor = "lightgray";
         item.className += " active";
     }
+    filter_vacancies();
+}
+
+function render_filter(indexes) {
+    let vacancies = "";
+    indexes.forEach((index) => {
+        let city = json[index]["Город Мос.обл, г. Орехово-Зуево"]
+        let job = json[index]["Должность Упаковщик/Разнорабочий"]
+        vacancies += `
+            <li onclick="open_vacancy(${index});">
+                <div class="name"><h3 class="project">${josn[index]["Проект КСП Стеклозавод Орехово-Зуево"]}</h5></div>
+                <div class="description">
+                    <span class="job">Должность</b>: ${job}</span>
+                    <br>
+                    <span class="age">Возраст</b>: ${item["Возраст от 18 до 55 (старше по согласованию)"]}</span>
+                    <br>
+                    <span class="city">Город</b>: ${city}</span>
+                </div>
+            </li>
+        <br>`;
+    });
+    const html_vacancies_list = `
+        <ul>
+            ${vacancies}
+        </ul>
+    <br>`;
+    document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
 function filter_vacancies() {
     let filtered_indexes = new Set();
-    for (let [k, v] in filter_set) {
-        if (filtered_indexes.size == 0) {
-            for (let i in fields[k][v]) {
-                filtered_indexes.add(i);
+    for (let i in filter_set) {
+        filter_set[i].forEach((j) => {
+            if (filtered_indexes.size == 0) {
+                for (let k in fields[i][j]) filtered_indexes.add(fields[i][j][k]);
+            } else {
+                filtered_indexes.forEach((index) => {
+                     if (!fields[i][j].includes(index)) filtered_indexes.delete(index);
+                });
             }
-        } else {
-            filtered_indexes.forEach((i) => {
-                if (!filter[k][v].includes(i)) filtered_indexes.delete(i);
-            });
-        }
+        })
     }
-    console.log(filtered_indexes);
+    render_filter()
 }
+
+function
 
 window.onload = () => {
     let filter = document.getElementById("filter");
