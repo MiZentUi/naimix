@@ -147,7 +147,7 @@ function render_filter(indexes) {
                 <div class="description">
                     <span class="job">Должность</b>: ${job}</span>
                     <br>
-                    <span class="age">Возраст</b>: ${item["Возраст от 18 до 55 (старше по согласованию)"]}</span>
+                    <span class="age">Возраст</b>: ${json[index]["Возраст от 18 до 55 (старше по согласованию)"]}</span>
                     <br>
                     <span class="city">Город</b>: ${city}</span>
                 </div>
