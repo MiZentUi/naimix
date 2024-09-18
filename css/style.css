@@ -136,6 +136,7 @@ div.filter div span {
 }
 
 #filter ul li {
+    white-space: pre-wrap;
     user-select: none;
     cursor: pointer;
     list-style-type: none;
