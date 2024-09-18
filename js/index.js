@@ -116,6 +116,7 @@ function filter_click(event, ul_id) {
         [...document.getElementById("filter").getElementsByTagName("ul")].forEach((item) => {
             item.style.display = "none";
         });
+        document.getElementById("payment_from").style.display = "none";
         ul.style.display = "block";
         arrow.style.transform = "rotate(90deg)";
         arrow.style.transition = "transform 0.5s";
@@ -227,6 +228,14 @@ window.onload = () => {
         let payment_from = document.getElementById("payment_from");
         let arrow = event.currentTarget.getElementsByTagName("span")[0];
         if (payment_from.style.display == "none" || payment_from.style.display == "") {
+            [...document.getElementsByClassName("item")].forEach((item) => {
+                let arrow = item.getElementsByTagName("span")[0];
+                arrow.style.transform = "rotate(0)";
+                arrow.style.transition = "transform 0.5s";
+            });
+            [...document.getElementById("filter").getElementsByTagName("ul")].forEach((item) => {
+                item.style.display = "none";
+            });
             payment_from.style.display = "flex";
             arrow.style.transform = "rotate(90deg)";
             arrow.style.transition = "transform 0.5s";

@@ -18,7 +18,7 @@ async def start_message(message: aiogram.types.Message):
 async def main():
     with open("config.json", "r") as config_file:
         config = json.load(config_file)
-    bot = aiogram.Bot(token=config["token"], default=aiogram.client.bot.DefaultBotProperties(parse_mode=aiogram.enums.ParseMode.HTML))
+    bot = aiogram.Bot(token=config["token"])
     await bot.delete_webhook(drop_pending_updates=True)
     await dispatcher.start_polling(bot, allowed_updates=dispatcher.resolve_used_update_types())
 
