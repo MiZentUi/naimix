@@ -181,8 +181,8 @@ function filter_vacancies() {
             if (filtered_indexes.size == 0) {
                 for (let k in fields[i][j]) {
                     let min_price = Infinity;
-                    JSON.stringify(json[fields[i][j][k]]["Оплата за смену ВАХТА с 05.08.24 за смену 3500р ( СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));});
-                    JSON.stringify(json[fields[i][j][k]]["Оплата за смену МЕСТНЫЕ С 05.08.24 за смену 3500р СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));});
+                    try { JSON.stringify(json[fields[i][j][k]]["Оплата за смену ВАХТА с 05.08.24 за смену 3500р ( СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));}); } catch (e) {}
+                    try { JSON.stringify(json[fields[i][j][k]]["Оплата за смену МЕСТНЫЕ С 05.08.24 за смену 3500р СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));}); } catch (e) {}
                     let address = JSON.stringify(json[fields[i][j][k]]["Адрес Адрес объекта: МО, г. Орехово-Зуево, проезд Заготзерно, 10. Адрес общежития ДЛЯ РФ (без прописки или вр.рег. не заселят): МО,г. Орехово-Зуево, ул Бабушкина 2а. Адрес общежития ДЛЯ ЕАЭС: МО, г. Орехово-Зуево,  ул. Ленина, д. 102а."]).toLowerCase();
                     let housing = address.includes("общ") || address.includes("кварт") || address.includes("засел");
                     if (min_price > parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value) || !parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value)) {
@@ -222,7 +222,7 @@ window.onload = () => {
     document.getElementById("job").addEventListener("click", event => filter_click(event, "jobs"));
     document.getElementById("city").addEventListener("click", event => filter_click(event, "cities"));
     document.getElementById("pay_rate").addEventListener("click", event => filter_click(event, "pay_rates"));
-    document.getElementById("housing").addEventListener("click", event => filter_click(event, "housings "));
+    document.getElementById("housing").addEventListener("click", event => filter_click(event, "housings"));
     document.getElementById("payment").addEventListener("click", (event) => {
         let payment_from = document.getElementById("payment_from");
         let arrow = event.currentTarget.getElementsByTagName("span")[0];
