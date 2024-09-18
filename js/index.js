@@ -133,7 +133,7 @@ function filter_item_click(item) {
             i.className = i.className.split(" ")[0];
             i.style.backgroundColor = "white";
         });
-        filter_set[item.getAttribute("data")].add(item.getElementsByTagName("p")[0].innerText);
+        if (item.getAttribute("data") != "housing") filter_set[item.getAttribute("data")].add(item.getElementsByTagName("p")[0].innerText);
         item.style.backgroundColor = "#e2e2e2";
         item.className += " active";
     } else {
@@ -183,7 +183,10 @@ function filter_vacancies() {
                     let min_price = Infinity;
                     JSON.stringify(json[fields[i][j][k]]["Оплата за смену ВАХТА с 05.08.24 за смену 3500р ( СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));});
                     JSON.stringify(json[fields[i][j][k]]["Оплата за смену МЕСТНЫЕ С 05.08.24 за смену 3500р СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));});
-                    if (min_price > parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value) || parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value) == NaN) filtered_indexes.add(fields[i][j][k]);
+                    let address = JSON.stringify(json[fields[i][j][k]]["Адрес Адрес объекта: МО, г. Орехово-Зуево, проезд Заготзерно, 10. Адрес общежития ДЛЯ РФ (без прописки или вр.рег. не заселят)"]);
+                    if (min_price > parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value) || !parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value)) {
+                        filtered_indexes.add(fields[i][j][k]);
+                    }
                 }
             } else {
                 filtered_indexes.forEach((index) => {
