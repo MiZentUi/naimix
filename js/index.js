@@ -194,7 +194,7 @@ function filter_vacancies() {
                 }
             } else {
                 filtered_indexes.forEach((index) => {
-                     if (!fields[i][j].includes(index)) filtered_indexes.delete(index);
+                    try { if (!fields[i][j].includes(index)) filtered_indexes.delete(index); } catch (e) {}
                 });
             }
         })
