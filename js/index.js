@@ -179,7 +179,12 @@ function filter_vacancies() {
     for (let i in filter_set) {
         filter_set[i].forEach((j) => {
             if (filtered_indexes.size == 0) {
-                for (let k in fields[i][j]) filtered_indexes.add(fields[i][j][k]);
+                for (let k in fields[i][j]) {
+                    let min_price = Infinity;
+                    JSON.stringify(json[fields[i][j][k]]["Оплата за смену ВАХТА с 05.08.24 за смену 3500р ( СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));});
+                    JSON.stringify(json[fields[i][j][k]]["Оплата за смену МЕСТНЫЕ С 05.08.24 за смену 3500р СТАЖИРОВОЧНАЯ СМЕНА ОПЛАЧИВАЕТСЯ, ЕСЛИ КАНДИДАТ ОТРАБАТЫВАЕТ МИНИМУМ 6 СМЕН)"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));});
+                    if (min_price > parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value) || parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value) == NaN) filtered_indexes.add(fields[i][j][k]);
+                }
             } else {
                 filtered_indexes.forEach((index) => {
                      if (!fields[i][j].includes(index)) filtered_indexes.delete(index);
