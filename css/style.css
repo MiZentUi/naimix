@@ -228,7 +228,7 @@ div.filter div span {
     padding: 10px 20px;
 }
 
-#vacancies ul li div.description {
+#vacancies ul li div.support {
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -265,7 +265,7 @@ div.filter div span {
     padding: 10px 20px;
 }
 
-#vacancy_card div.description {
+#vacancy_card div.support {
     margin-left: 20px;
     margin-bottom: 10px;
     margin-right: 20px;
@@ -332,16 +332,16 @@ div.filter div span {
     outline-width: 0;
 }
 
-#description div input:focus-visible {
+#support div input:focus-visible {
     outline: #e2e2e2 auto 0;
 }
 
-#description {
+#support {
     /* display: none; */
     position: relative;
 }
 
-#description div {
+#support div {
     position: relative;
     display: grid;
     background-color: white;
@@ -352,14 +352,14 @@ div.filter div span {
     box-shadow: 1px 1px 10px gray;
 }
 
-#description div p {
+#support div p {
     color: #ff5e00;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     margin: 0 0 5px 20px;
 }
 
-#description div textarea {
+#support div textarea {
 
     color: gray;
     margin: 0 auto 0 auto;
@@ -374,6 +374,6 @@ div.filter div span {
     box-shadow: 0 0 5px gray inset;
 }
 
-#description div textarea:focus-visible {
+#support div textarea:focus-visible {
     outline-width: 0;
 }
