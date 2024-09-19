@@ -204,6 +204,7 @@ function filter_vacancies() {
 }
 
 window.onload = () => {
+    document.getElementsByTagName("h5")[0].innerText = window.innerHeight.toString() + " " + window.innerWidth.toString()
     let filter = document.getElementById("filter");
     let filter_button = document.getElementById("filter_button");
     let filter_arrow_span = document.getElementById("filter_arrow").getElementsByTagName("span")[0];
