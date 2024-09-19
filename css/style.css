@@ -332,6 +332,21 @@ div.filter div span {
     outline-width: 0;
 }
 
+#support div input {
+    flex: 2;
+    height: 50px;
+    background-color: white;
+    color: gray;
+    margin: 0 auto 0 auto;
+    border-width: 0;
+    padding: 20px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px gray inset;
+    border-radius: 10px;
+}
+
 #support div input:focus-visible {
     outline: #e2e2e2 auto 0;
 }
@@ -377,3 +392,16 @@ div.filter div span {
 #support div textarea:focus-visible {
     outline-width: 0;
 }
+
+#contacts {
+    font-size: 18px;
+}
+
+#contacts h5 {
+    font-style: bold;
+}
+
+#contacts span {
+    color: #ff5e00;
+}
+
