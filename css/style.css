@@ -394,14 +394,12 @@ div.filter div span {
 }
 
 #contacts {
+    padding: 20px 30px;
     font-size: 18px;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
-#contacts h5 {
+#contacts h6 {
+    font-size: 20px;
     font-style: bold;
 }
-
-#contacts span {
-    color: #ff5e00;
-}
-
