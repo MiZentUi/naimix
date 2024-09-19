@@ -352,7 +352,7 @@ div.filter div span {
 }
 
 #support {
-    /* display: none; */
+    display: none;
     position: relative;
 }
 

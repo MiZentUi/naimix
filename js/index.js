@@ -245,5 +245,4 @@ window.onload = () => {
             arrow.style.transition = "transform 0.5s";
         }
     });
-    document.getElementsByTagName("h6")[0].innerText = window.innerHeight.toString() + " " + window.innerWidth.toString();
 }
