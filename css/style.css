@@ -2,12 +2,15 @@
 
 body {
     background-color: #e2e2e2;
-    margin: 0;
-    margin-bottom: 90px;
+    margin: 20px 0 90px 0;
 }
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.description {
+    margin: 10px;
 }
 
 #menu {

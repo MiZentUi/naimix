@@ -223,8 +223,8 @@ window.onload = () => {
         }
     });
     document.getElementById("menu").addEventListener("click", (event) => {
-        let id = event.target.closest("div").getAttribute("id");
-        switch (id) {
+        let element = event.target.closest("div");
+        switch (element.getAttribute("id")) {
             case "main-button":
                 back_to_main();
                 break;
@@ -233,13 +233,17 @@ window.onload = () => {
                 document.getElementById("contacts").style.display = "none";
                 document.getElementById("support").style.display = "block";
                 break;
-            case "contacts-button":
-                document.getElementById("main").style.display = "none";
-                document.getElementById("support").style.display = "none";
-                document.getElementById("contacts").style.display = "block";
-            default:
-                break;
+                case "contacts-button":
+                    document.getElementById("main").style.display = "none";
+                    document.getElementById("support").style.display = "none";
+                    document.getElementById("contacts").style.display = "block";
+                    default:
+                        break;
         }
+        [...event.currentTarget.getElementsByTagName("div")].forEach((item) => {
+            item.style.color = "black";
+        });
+        element.style.color = "orange";
     });
     document.getElementById("job").addEventListener("click", event => filter_click(event, "jobs"));
     document.getElementById("city").addEventListener("click", event => filter_click(event, "cities"));
