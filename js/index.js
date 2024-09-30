@@ -93,6 +93,8 @@ function back_to_main() {
     let vacancy_div = document.getElementById("vacancy")
     main.style.display = "block";
     vacancy_div.style.display = "none";
+    document.getElementById("contacts").style.display = "none";
+    document.getElementById("support").style.display = "none";
     document.getElementById("request").style.display = "none";
     window.Telegram.WebApp.BackButton.hide();
     window.Telegram.WebApp.MainButton.hide();
@@ -221,7 +223,23 @@ window.onload = () => {
         }
     });
     document.getElementById("menu").addEventListener("click", (event) => {
-        console.log(event.target.currentTarget);
+        let id = event.target.closest("div").getAttribute("id");
+        switch (id) {
+            case "main-button":
+                back_to_main();
+                break;
+            case "support-button":
+                document.getElementById("main").style.display = "none";
+                document.getElementById("contacts").style.display = "none";
+                document.getElementById("support").style.display = "block";
+                break;
+            case "contacts-button":
+                document.getElementById("main").style.display = "none";
+                document.getElementById("support").style.display = "none";
+                document.getElementById("contacts").style.display = "block";
+            default:
+                break;
+        }
     });
     document.getElementById("job").addEventListener("click", event => filter_click(event, "jobs"));
     document.getElementById("city").addEventListener("click", event => filter_click(event, "cities"));
