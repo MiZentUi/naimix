@@ -30,7 +30,9 @@ body {
 }
 
 #menu div p {
+    font-weight: bold;
     font-size: 15px;
+    color: gray;
     font-family: 'Roboto', Arial, sans-serif;
     margin: auto 0;
     text-align: center;
