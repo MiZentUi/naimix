@@ -243,9 +243,9 @@ window.onload = () => {
                         break;
         }
         [...event.currentTarget.getElementsByTagName("div")].forEach((item) => {
-            item.style.color = "black";
+            item.style.color = "darkgray";
         });
-        element.style.color = "orange";
+        element.style.color = "#ff5e00";
     });
     document.getElementById("job").addEventListener("click", event => filter_click(event, "jobs"));
     document.getElementById("city").addEventListener("click", event => filter_click(event, "cities"));
