@@ -220,6 +220,9 @@ window.onload = () => {
             filter_arrow_span.style.transition = "transform 0.5s";
         }
     });
+    document.getElementById("menu").addEventListener("click", (event) => {
+        console.log(event.target.currentTarget);
+    });
     document.getElementById("job").addEventListener("click", event => filter_click(event, "jobs"));
     document.getElementById("city").addEventListener("click", event => filter_click(event, "cities"));
     document.getElementById("pay_rate").addEventListener("click", event => filter_click(event, "pay_rates"));
