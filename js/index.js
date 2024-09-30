@@ -82,7 +82,7 @@ function open_vacancy(vacancy_index) {
     vacancy_div.style.display = "block";
     window.Telegram.WebApp.BackButton.onClick(back_to_main);
     window.Telegram.WebApp.BackButton.show();
-    window.Telegram.WebApp.MainButton.text = "Оставить заявку";
+    window.Telegram.WebApp.MainButton.text = "Откликнуться";
     window.Telegram.WebApp.MainButton.color = "#ff5e00";
     window.Telegram.WebApp.MainButton.onClick(open_request);
     window.Telegram.WebApp.MainButton.show();
