@@ -243,7 +243,7 @@ window.onload = () => {
                         break;
         }
         [...event.currentTarget.getElementsByTagName("div")].forEach((item) => {
-            item.style.color = "darkgray";
+            item.style.color = "gray";
         });
         element.style.color = "#ff5e00";
     });
