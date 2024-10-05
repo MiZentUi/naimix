@@ -213,6 +213,7 @@ function filter_vacancies() {
 }
 
 window.onload = () => {
+    document.getElementsByTagName("p")[0].innerText = window.innerWidth + " " + window.innerHeight
     let filter = document.getElementById("filter");
     let filter_button = document.getElementById("filter_button");   
     document.getElementById("filter_button").addEventListener("click", () => {
