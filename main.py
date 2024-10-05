@@ -5,6 +5,7 @@ import aiogram.fsm.storage
 import aiogram.fsm.storage.memory
 import aiogram.client.bot
 import logging
+
 from aiogram import F
 
 import aiogram.utils
@@ -17,7 +18,7 @@ async def start_message(message: aiogram.types.Message):
     await message.answer("Добро пожаловать в HelpResource!", reply_markup=aiogram.types.InlineKeyboardMarkup(inline_keyboard=[[aiogram.types.InlineKeyboardButton(text="Menu", web_app=aiogram.types.WebAppInfo(url="https://mizentui.github.io/naimix"))]]))
 
 @dispatcher.message()
-async def get_data(message: aiogram.types.Message):
+async def get_data(message):
     print(message)
     print(message.web_app_data)
 

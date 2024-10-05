@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 body {
-    background-color: #e2e2e2;
+    background-color: white;
     margin: 20px 0 90px 0;
 }
 
@@ -9,29 +9,32 @@ body {
     display: none;
 }
 
-.description {
-    margin: 20px;
-}
-
 #menu {
     display: flex;
     width: 100%;
     position: fixed;
     bottom: 0;
-    background-color: lightgray;
+    background-color: #E1E1E1;
     z-index: 10;
-    padding: 10px 0;
 }
 
 #menu div {
-    color: gray;
+    color: black;
     display: grid;
     flex: 1 1 0;
     cursor: pointer;
+    padding: 10px 0;
+}
+
+#menu div svg {
+    margin: auto;
+}
+
+#menu div svg path {
+    stroke: black;
 }
 
 #menu div p {
-    font-weight: bold;
     font-size: 15px;
     font-family: 'Roboto', Arial, sans-serif;
     margin: auto 0;
@@ -43,30 +46,26 @@ body {
     display: block;
 }
 
-#vacancy {
-    display: none;
-    padding: 15px 10px 0 10px;
-}
-
 #head {
     display: grid;
-    margin: 20px auto 20px auto;
+    margin: 20px auto 0 auto;
     width: 90%;
 }
 
 #head img {
-    width: 75%;
+    width: 90%;
     align-self: center;
     border-radius: 10px;
     margin: 0 auto 0 auto;
     margin-bottom: 20px;
-    box-shadow: 1px 1px 10px gray;
 }
 
 #head p {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 18px;
-    color: #949494;
+    color: black;
+    text-align: center;
+    user-select: none;
     margin: 0 10px;
 }
 
@@ -79,7 +78,7 @@ body {
 div.filter {
     display: flex;
     position: relatives;
-    background-color: #e2e2e2;
+    background-color: #F5F5F5;
     left: 0;
     width: 100%;
     z-index: 1;
@@ -89,7 +88,6 @@ div.filter {
     max-width: 90%;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 1px 1px 10px gray;
 }
 
 div.filter div {
@@ -99,31 +97,31 @@ div.filter div {
 }
 
 div.filter p {
-    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
     font-family: 'Roboto', Arial, sans-serif;
-    color: #ff5e00;
+    color: #FE5E00;
     padding-left: 20px;
-    font-weight: bold;
     user-select: none;
     margin: 15px 0 15px 0;
 }
 
 div.filter div span {
-    font-size: 35px;
-    color: #ff5e00;
+    font-size: 30px;
+    color: #FE5E00;
     user-select: none;
     margin: auto;
 }
 
-#filter_arrow {
-    margin: 0 0 0 auto;
+div.filter div {
+    margin: 0 10px 0 auto;
 }
 
 #filter {
     display: none;
     border-radius: 10px;
     background-color: white;
-    box-shadow: 1px 1px 10px gray;
     align-self: center;
     margin: 0 auto 0 auto;
     padding: 70px 0 0 0;
@@ -134,16 +132,17 @@ div.filter div span {
     display: flex;
     font-size: 15px;
     font-family: 'Roboto', Arial, sans-serif;
-    color: #ff5e00;
+    color: black;
     user-select: none;
-    /* border-bottom: 1px solid lightgray; */
+    border: solid 1px lightgray;
+    border-radius: 10px;
     height: 50px;
     cursor: pointer;
+    margin: 5px 0;
 }
 
 #filter div.item p {
     padding-left: 20px;
-    font-weight: bold;
 }
 
 #filter div.item div {
@@ -161,22 +160,21 @@ div.filter div span {
 }
 
 #filter ul {
-    width: 80%;
-    padding: 10px;
+    padding: 0;
     margin: auto;
     background-color: white;
     border-radius: 10px;
     display: none;
-    box-shadow: 0 0 5px gray inset;
 }
 
 #filter ul li {
+    display: flex;
     white-space: pre-wrap;
     user-select: none;
     cursor: pointer;
     list-style-type: none;
     background-color: white;
-    padding: 10px 10px 10px 20px;
+    padding: 10px;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     border-radius: 10px;
@@ -184,25 +182,25 @@ div.filter div span {
 }
 
 #filter ul li p {
-    margin: 0;
-    color: #ff5e00;
+    margin: auto 0;
+    color: black;
+}
+
+#filter ul li span {
+    margin: auto 0 auto auto;
 }
 
 #payment_from {
-    box-shadow: 0 0 5px gray inset;
-    width: 85%;
     box-sizing: border-box;
     padding: 10px;
     margin: auto;
-    background-color: white;
+    background-color: #F5F5F5;
     border-radius: 10px;
     display: none;
-    box-shadow: 0 0 5px gray inset;
 }
 
 #payment_from input {
-    box-shadow: 0 0 5px gray inset;
-    background-color: white;
+    background-color: #F5F5F5;
     border-radius: 10px;
     border-width: 0;
     height: 25px;
@@ -218,10 +216,10 @@ div.filter div span {
 }
 
 #payment_from span {
-    margin: auto 5px auto 5px;
+    margin: auto 5px auto autos;
     font-size: 15px;
     font-family: 'Roboto', Arial, sans-serif;
-    color: #ff5e00;
+    color: #FE5E00;
     user-select: none;
 }
 
@@ -232,33 +230,52 @@ div.filter div span {
 }
 
 #vacancies ul li {
-    box-shadow: 1px 1px 10px gray;
     user-select: none;
     cursor: pointer;
     list-style-type: none;
     border-radius: 10px;
     background-color: white;
     margin-left: 0;
-    margin-bottom: 10px;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
-    color: gray;
+    color: black;
     padding-bottom: 10px;
     position: relative;
 }
 
 #vacancies ul li h3 {
-    color: #ff5e00;
-    font-size: 1.1em;
-    margin: 0;
+    color: #FE5E00;
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+}
+
+.description div {
+    display: flex;
+    background-color: #F5F5F5;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.description div .header {
+    font-weight: bold;
+    margin-right: 5px;
+    flex: 0 1 33.33%;
+}
+
+.description div span {
+    flex: 0 1 66.66%;
+    font-size: 15px;
 }
 
 #vacancies ul li div.name {
-    background-color: #e2e2e2;
-    margin: 0 auto 10px auto;
-    border-radius: 10px 10px 0 0;
+    display: grid;
+    background-color: #F5F5F5;
+    margin: 0 auto 5px auto;
+    border-radius: 10px;
     width: 100%;
-    height: 40px;
+    min-height: 50px;
     box-sizing: border-box;
     padding: 10px 20px;
 }
@@ -270,31 +287,37 @@ div.filter div span {
 
 #project {
     font-size: 20px;
-    color: #ff5e00;
-    margin: 0;
+    text-align: center;
+    color: #FE5E00;
+    margin: auto;
     font-family: 'Roboto', Arial, sans-serif;
+}
+
+#vacancy {
+    display: none;
+    padding: 0 10px;
 }
 
 #vacancy span {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
-    color: gray;
-    margin-bottom: 20px;
+    color: black;
 }
 
 #vacancy_card {
     background-color: white;
     border-radius: 10px;
     margin-bottom: 20px;
-    box-shadow: 1px 1px 10px gray;
     padding: 0 0 20px 0;
 }
 
 #vacancy_card div.name {
-    background-color: #e2e2e2;
+    display: grid;
+    background-color: #F5F5F5;
     margin: 0 auto 10px auto;
-    border-radius: 10px 10px 0 0;
-    width: 100;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 50px;
     box-sizing: border-box;
     padding: 10px 20px;
 }
@@ -316,12 +339,11 @@ div.filter div span {
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
-    box-shadow: 0 0 5px gray inset;
     border-radius: 10px;
 }
 
 #request div input:focus-visible {
-    outline: #e2e2e2 auto 0;
+    outline: #F5F5F5 auto 0;
 }
 
 #request {
@@ -337,11 +359,10 @@ div.filter div span {
     padding: 20px;
     max-width: 80%;
     margin: 0 auto 20px auto;
-    box-shadow: 1px 1px 10px gray;
 }
 
 #request div p {
-    color: #ff5e00;
+    color: #FE5E00;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     margin: 0 0 5px 20px;
@@ -359,7 +380,6 @@ div.filter div span {
     border-radius: 10px;
     background-color: white;
     box-sizing: border-box;
-    box-shadow: 0 0 5px gray inset;
 }
 
 #request div textarea:focus-visible {
@@ -377,12 +397,11 @@ div.filter div span {
     font-size: 14px;
     width: 100%;
     box-sizing: border-box;
-    box-shadow: 0 0 5px gray inset;
     border-radius: 10px;
 }
 
 #support div input:focus-visible {
-    outline: #e2e2e2 auto 0;
+    outline: #F5F5F5 auto 0;
 }
 
 #support {
@@ -398,11 +417,10 @@ div.filter div span {
     padding: 20px;
     max-width: 80%;
     margin: 0 auto 20px auto;
-    box-shadow: 1px 1px 10px gray;
 }
 
 #support div p {
-    color: #ff5e00;
+    color: #FE5E00;
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 15px;
     margin: 0 0 5px 20px;
@@ -420,7 +438,6 @@ div.filter div span {
     border-radius: 10px;
     background-color: white;
     box-sizing: border-box;
-    box-shadow: 0 0 5px gray inset;
 }
 
 #support div textarea:focus-visible {
@@ -429,12 +446,37 @@ div.filter div span {
 
 #contacts {
     display: none;
-    padding: 20px 30px;
-    font-size: 17px;
+    font-size: 15px;
     font-family: 'Roboto', Arial, sans-serif;
+    background-color: #F5F5F5;
+    margin: 0 20px;
+    border-radius: 20px;
+    padding: 20px 23px
 }
 
 #contacts h6 {
-    margin: 20px 0;
+    text-align: center;
+    margin: 0 0 5px 0;
     font-size: 20px;
+}
+
+#contacts > div {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+#contacts div div {
+    display: flex;
+}
+
+#contacts div div svg {
+    margin: auto 10px;
+}
+
+#contacts div p {
+    font-size: 13px;
+    color: #282828;
+    margin: 0 0 5px 10px;    ;
 }
