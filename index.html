@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpResource</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/public-google-sheets-parser@latest"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="static/js/index.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Rounded" rel="stylesheet">
+</head>
+<body>
+    <div id="menu">
+        <div id="main-button" style="color: #FE5E00;">
+            <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path style="stroke: #FE5E00;" d="M16.125 21V13C16.125 12.7348 16.0153 12.4805 15.8199 12.2929C15.6246 12.1054 15.3596 12 15.0833 12H10.9167C10.6404 12 10.3754 12.1054 10.1801 12.2929C9.98475 12.4805 9.875 12.7348 9.875 13V21M3.625 10C3.62493 9.7091 3.69097 9.42165 3.81853 9.15775C3.94609 8.89384 4.13208 8.65983 4.36354 8.47203L11.6552 2.47303C12.0312 2.16794 12.5077 2.00055 13 2.00055C13.4923 2.00055 13.9688 2.16794 14.3448 2.47303L21.6365 8.47203C21.8679 8.65983 22.0539 8.89384 22.1815 9.15775C22.309 9.42165 22.3751 9.7091 22.375 10V19C22.375 19.5305 22.1555 20.0392 21.7648 20.4142C21.3741 20.7893 20.8442 21 20.2917 21H5.70833C5.1558 21 4.62589 20.7893 4.23519 20.4142C3.84449 20.0392 3.625 19.5305 3.625 19V10Z" stroke="#FE5E00" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                
+            <p>Главная</p>
+        </div>
+        <div id="support-button">
+            <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.95834 11H7.08334C7.63588 11 8.16578 11.2107 8.55648 11.5858C8.94718 11.9609 9.16668 12.4696 9.16668 13V16C9.16668 16.5304 8.94718 17.0391 8.55648 17.4142C8.16578 17.7893 7.63588 18 7.08334 18H6.04168C5.48914 18 4.95924 17.7893 4.56854 17.4142C4.17784 17.0391 3.95834 16.5304 3.95834 16V11ZM3.95834 11C3.95834 9.8181 4.20083 8.64778 4.67197 7.55585C5.14311 6.46392 5.83367 5.47177 6.70422 4.63604C7.57477 3.80031 8.60826 3.13738 9.74569 2.68508C10.8831 2.23279 12.1022 2 13.3333 2C14.5645 2 15.7836 2.23279 16.921 2.68508C18.0584 3.13738 19.0919 3.80031 19.9625 4.63604C20.833 5.47177 21.5236 6.46392 21.9947 7.55585C22.4659 8.64778 22.7083 9.8181 22.7083 11M22.7083 11V16M22.7083 11H19.5833C19.0308 11 18.5009 11.2107 18.1102 11.5858C17.7195 11.9609 17.5 12.4696 17.5 13V16C17.5 16.5304 17.7195 17.0391 18.1102 17.4142C18.5009 17.7893 19.0308 18 19.5833 18H20.625C21.1775 18 21.7074 17.7893 22.0981 17.4142C22.4888 17.0391 22.7083 16.5304 22.7083 16M22.7083 16V18C22.7083 19.0609 22.2694 20.0783 21.488 20.8284C20.7066 21.5786 19.6467 22 18.5417 22H13.3333" stroke="#FE5E00" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>    
+            <p>Помощь   </p>
+        </div>
+        <div id="faq-button">
+            <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.63545 8.99999C9.88035 8.33165 10.3637 7.76809 11 7.40912C11.6362 7.05014 12.3843 6.91892 13.1117 7.0387C13.839 7.15847 14.4988 7.52151 14.9741 8.06351C15.4493 8.60552 15.7095 9.29151 15.7084 9.99999C15.7084 12 12.5834 13 12.5834 13M12.6667 17H12.6771M8.39586 20C10.384 20.979 12.671 21.2442 14.8447 20.7478C17.0185 20.2513 18.936 19.0258 20.2519 17.2922C21.5677 15.5585 22.1953 13.4307 22.0215 11.2921C21.8477 9.1536 20.884 7.14496 19.304 5.62818C17.724 4.1114 15.6317 3.18624 13.404 3.0194C11.1764 2.85257 8.9599 3.45503 7.15401 4.71823C5.34812 5.98143 4.07158 7.8223 3.55443 9.9091C3.03727 11.9959 3.31351 14.1914 4.33336 16.1L2.25003 22L8.39586 20Z" stroke="#FE5E00" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                
+            <p>База знаний</p>
+        </div>
+        <div id="contacts-button">
+            <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.1667 2V4M19.1615 22C19.1615 20.4087 18.503 18.8826 17.3309 17.7574C16.1588 16.6321 14.5691 16 12.9115 16C11.2539 16 9.66414 16.6321 8.49204 17.7574C7.31994 18.8826 6.66146 20.4087 6.66146 22M8.83333 2V4M17.1667 12C17.1667 14.2091 15.3012 16 13 16C10.6988 16 8.83333 14.2091 8.83333 12C8.83333 9.79086 10.6988 8 13 8C15.3012 8 17.1667 9.79086 17.1667 12ZM5.70833 4H20.2917C21.4423 4 22.375 4.89543 22.375 6V20C22.375 21.1046 21.4423 22 20.2917 22H5.70833C4.55774 22 3.625 21.1046 3.625 20V6C3.625 4.89543 4.55774 4 5.70833 4Z" stroke="#FE5E00" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>                
+            <p>Контакты</p>
+        </div>
+    </div>
+    <div id="main">
+        <div id="head">
+            <img class="logo" src="static/img/logo.png">
+            <p>Найди работу своей мечты вместе с нами!</p>
+            <img class="main" src="static/img/main.png" alt="">
+        </div>
+        <div id="navigation">
+            <div class="filter" id="filter_button">
+                <p>Фильтры</p>
+                <svg width="50" height="50" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                    <rect width="38" height="38" rx="5" fill="#F5F5F5"/>
+                    <path d="M25 15.25H18.25M20.5 22.75H13.75M20.5 22.75C20.5 23.9926 21.5074 25 22.75 25C23.9926 25 25 23.9926 25 22.75C25 21.5074 23.9926 20.5 22.75 20.5C21.5074 20.5 20.5 21.5074 20.5 22.75ZM17.5 15.25C17.5 16.4926 16.4926 17.5 15.25 17.5C14.0074 17.5 13 16.4926 13 15.25C13 14.0074 14.0074 13 15.25 13C16.4926 13 17.5 14.0074 17.5 15.25Z" stroke="#FE5E00" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>    
+            </div>
+            <div id="filter">
+                <div id="job" class="item"><p>Должность</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <ul id="jobs"></ul>
+                <div id="city" class="item"><p>Город</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <ul id="cities"></ul>
+                <div id="housing" class="item"><p>Наличие проживания</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <ul id="housings">
+                    <li class="filter_item" data="housings" onclick="filter_item_click(this);"><p>Да</p><span class="material-symbols-rounded">radio_button_unchecked</span></li>
+                    <li class="filter_item" data="housings" onclick="filter_item_click(this);"><p>Нет</p><span class="material-symbols-rounded">radio_button_unchecked</span></li>
+                </ul>
+                <div id="nutrition" style="display: none;" class="item"><p>Наличие питания</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <div id="payment" class="item"><p>Оплата за смену</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <div id="payment_from"><span>От</span><input type="text" placeholder="0" oninput="filter_vacancies();"><span>рублей</span></div>
+                <div id="pay_rate" class="item"><p>Частота выплат</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <ul id="pay_rates" style="margin-bottom: 20px;"></ul>
+            </div>
+        </div>
+        <div id="vacancies"></div>
+    </div>
+    <div id="vacancy"></div>
+    <div id="request">
+        <div id="name"><p><b>Ваше имя</b></p><input type="text"></div>
+        <div id="phone"><p><b>Ваш номер телефона</b></p><input type="text"></div>
+        <div id="phone"><p><b>Из какого Вы города?</b></p><input type="text"></div>
+        <div id="communication"><p><b>Удобный способ связи</b></p><textarea type="text" rows="5"></textarea></div>
+    </div>
+    <div id="support">
+        <div id="email"><p><b>Адрес электронной почты</b></p><input type="email"></div>    
+        <div id="topic"><p><b>Тема</b></p><input type="text"></div>
+        <div id="description"><p><b>Описание</b></p><textarea type="text" rows="5"></textarea></div>
+    </div>
+    <div id="contacts">
+        <h6>Контакты</h6>
+        <div>
+            <div>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.25 11.075V12.95C14.2507 13.1241 14.2151 13.2964 14.1453 13.4558C14.0756 13.6153 13.9733 13.7585 13.8451 13.8762C13.7168 13.9938 13.5654 14.0834 13.4005 14.1392C13.2356 14.195 13.0609 14.2157 12.8875 14.2C10.9643 13.991 9.11689 13.3338 7.49377 12.2812C5.98366 11.3217 4.70335 10.0414 3.74377 8.53125C2.68751 6.90075 2.03017 5.04437 1.82502 3.1125C1.8094 2.93967 1.82994 2.76547 1.88533 2.60101C1.94072 2.43655 2.02975 2.28543 2.14675 2.15726C2.26374 2.0291 2.40615 1.92669 2.56489 1.85658C2.72363 1.78646 2.89523 1.75016 3.06877 1.75H4.94377C5.24709 1.74701 5.54114 1.85442 5.77112 2.05221C6.0011 2.24999 6.15132 2.52465 6.19377 2.825C6.27291 3.42504 6.41968 4.0142 6.63127 4.58125C6.71536 4.80495 6.73356 5.04807 6.68371 5.2818C6.63386 5.51553 6.51806 5.73007 6.35002 5.9L5.55627 6.69375C6.44599 8.25846 7.74155 9.55403 9.30627 10.4437L10.1 9.65C10.2699 9.48196 10.4845 9.36615 10.7182 9.31631C10.9519 9.26646 11.1951 9.28466 11.4188 9.36875C11.9858 9.58034 12.575 9.72711 13.175 9.80625C13.4786 9.84908 13.7559 10.002 13.9541 10.2359C14.1523 10.4699 14.2576 10.7685 14.25 11.075Z" stroke="#FE5E00" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="text">8 (800) 700-95-77</span>
+            </div>
+        </div>
+        <div>
+            <p>Для клиентов</p>
+            <div>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.25 4.875L8.64375 8.4375C8.45079 8.55839 8.2277 8.62251 8 8.62251C7.7723 8.62251 7.54921 8.55839 7.35625 8.4375L1.75 4.875M3 3H13C13.6904 3 14.25 3.55964 14.25 4.25V11.75C14.25 12.4404 13.6904 13 13 13H3C2.30964 13 1.75 12.4404 1.75 11.75V4.25C1.75 3.55964 2.30964 3 3 3Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                
+                <span class="text">mail@helpresource.ru</span>
+            </div>
+        </div>
+        <div>
+            <p>Для поставщиков</p>
+            <div>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.25 4.875L8.64375 8.4375C8.45079 8.55839 8.2277 8.62251 8 8.62251C7.7723 8.62251 7.54921 8.55839 7.35625 8.4375L1.75 4.875M3 3H13C13.6904 3 14.25 3.55964 14.25 4.25V11.75C14.25 12.4404 13.6904 13 13 13H3C2.30964 13 1.75 12.4404 1.75 11.75V4.25C1.75 3.55964 2.30964 3 3 3Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                
+            <span class="text">kp@helpresource.ru</span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 4.25V8H5.1875M14.25 8C14.25 11.4518 11.4518 14.25 8 14.25C4.54822 14.25 1.75 11.4518 1.75 8C1.75 4.54822 4.54822 1.75 8 1.75C11.4518 1.75 14.25 4.54822 14.25 8Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                
+                <span class="text">ПН-ПТ с 9:00 до 18:00</span>
+            </div>
+        </div>
+        <div>
+            <div>
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 6.75C13 9.87063 9.53812 13.1206 8.37562 14.1244C8.26733 14.2058 8.1355 14.2498 8 14.2498C7.8645 14.2498 7.73267 14.2058 7.62438 14.1244C6.46188 13.1206 3 9.87063 3 6.75C3 5.42392 3.52678 4.15215 4.46447 3.21447C5.40215 2.27678 6.67392 1.75 8 1.75C9.32608 1.75 10.5979 2.27678 11.5355 3.21447C12.4732 4.15215 13 5.42392 13 6.75Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 8.625C9.03553 8.625 9.875 7.78553 9.875 6.75C9.875 5.71447 9.03553 4.875 8 4.875C6.96447 4.875 6.125 5.71447 6.125 6.75C6.125 7.78553 6.96447 8.625 8 8.625Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>                
+                <span class="text">111524 г. Москва,<br>ул. Электродная, д. 2, <br>стр. 12-13-14, оф. №32</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
