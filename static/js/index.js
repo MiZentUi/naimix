@@ -1,4 +1,5 @@
-fetch("/get_tt").then(r =>  r.json().then(data => (new PublicGoogleSheetsParser("16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs", {"useFormat": true}).parse().then((data) => {json = data; render_vacancies(data)}))))
+// fetch("/get_tt").then(r =>  r.json().then(data => (new PublicGoogleSheetsParser(data["table"], {"useFormat": true}).parse().then((data) => {json = data; render_vacancies(data)}))))
+(new PublicGoogleSheetsParser("16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs", {"useFormat": true}).parse().then((data) => {json = data; render_vacancies(data)}))
 let fields = {"cities": {}, "jobs": {}, "housings": {}, "nutritions": {}, "payments": {}, "pay_rates": {}}
 let filter_set = {"cities": new Set(), "jobs": new Set(), "housings": new Set(), "nutritions": new Set(), "payments": new Set(), "pay_rates": new Set()}
 
