@@ -1,5 +1,5 @@
 // fetch("/get_tt").then(r =>  r.json().then(data => (new PublicGoogleSheetsParser(data["table"], {"useFormat": true}).parse().then((data) => {json = data; render_vacancies(data)}))))
-(new PublicGoogleSheetsParser("16xDhs8r3eNPia1ByrI4dbNxqwrXyymhalXvB8NmrnLs", {"useFormat": true}).parse().then((data) => {json = data; render_vacancies(data)}))
+(new PublicGoogleSheetsParser("14jj4QBrpZOzzasHKKv-XzECEK5C2m20B1FLOBULodng", {"useFormat": true}).parse().then((data) => {json = data; render_vacancies(data)}))
 let fields = {"cities": {}, "jobs": {}, "housings": {}, "nutritions": {}, "payments": {}, "pay_rates": {}}
 let filter_set = {"cities": new Set(), "jobs": new Set(), "housings": new Set(), "nutritions": new Set(), "payments": new Set(), "pay_rates": new Set()}
 
@@ -17,22 +17,7 @@ function render_vacancies(json) {
         if (!fields["jobs"].hasOwnProperty(job)) fields["jobs"][job] = [];
         fields["cities"][city].push(index);
         fields["jobs"][job].push(index);
-        vacancies += `
-            <li onclick="open_vacancy(${index});">
-                <div class="name"><h3 class="project">${item["Проект"]}</h5></div>
-                <div class="description">
-                    <div><span class="header">Должность</span><span>${job}</span></div>
-                    <div><span class="header">Возраст</span><span>${item["Возраст"]}</span></div>
-                    <div><span class="header">Город</span><span>${city}</span></div>
-                </div>
-            </li>
-        <br>`;
     });
-    const html_vacancies_list = `
-        <ul>
-            ${vacancies}
-        </ul>
-    <br>`;
     for (let i in fields["cities"]) {
         if (i != undefined) cities_items += `
             <li class="filter_item" data="cities" onclick="filter_item_click(this);"><p>${i}</p><span class="material-symbols-rounded">check_box_outline_blank</span></li>
@@ -57,16 +42,20 @@ function render_vacancies(json) {
 function render_vacancy(index) {
     let vacancy_div = document.getElementById("vacancy")
     let vacancy_div_html = `<div id="vacancy_card"><div class="name"><h1 id="project">${json[index]["Проект"]}</h1></div><div class="description">`;
-    if (json[index]["Должность"] != undefined) vacancy_div_html += `<div><span class="header">Должность</span><span>${json[index]["Должность"]}</span></div>`;
-    if (json[index]["Город"] != undefined) vacancy_div_html += `<div><span class="header">Город</span><span>${json[index]["Город"]}</span></div>`;
-    if (json[index]["Адрес"] != undefined) vacancy_div_html += `<div><span class="header">Адрес</span><span>${json[index]["Адрес"]}</span></div>`;
-    // if (json[index]["Общая потребность 8 только день"] != undefined) vacancy_div_html += `<span>Общая потребность</b>: ${json[index]["Общая потребность 8 только день"]}</span></div>`;
-    if (json[index]["Возраст"] != undefined) vacancy_div_html += `<div><span class="header">Возраст</span><span>${json[index]["Возраст"]}</span></div>`;
-    if (json[index]["Гражданство"] != undefined) vacancy_div_html += `<div><span class="header">Гражданство</span><span>${json[index]["Гражданство"]}</span></div>`;
-    if (json[index]["График"] != undefined) vacancy_div_html += `<div><span class="header">График</span><span>${json[index]["График"]}</span></div>`;
-    if (json[index]["Частота выплат"] != undefined) vacancy_div_html += `<div><span class="header">Частота выплат</span><span>${json[index]["Частота выплат"]}</span></div>`;
-    if (json[index]["Оплата за смену ВАХТА"] != undefined) vacancy_div_html += `<div><span class="header">Оплата за смену ВАХТА</span><span>${json[index]["Оплата за смену ВАХТА"]}</span></div>`;
-    if (json[index]["Оплата за смену МЕСТНЫЕ"] != undefined) vacancy_div_html += `<div><span class="header">Оплата за смену МЕСТНЫЕ</span><span>${json[index]["Оплата за смену МЕСТНЫЕ"]}</span></div>`;
+    for (let key in json[index]) {
+        let value = json[index][key];
+        if (value != undefined) vacancy_div_html += `<div><span class="header">${key}</span><span>${value}</span></div>`;
+    }
+    // if (json[index]["Должность"] != undefined) vacancy_div_html += `<div><span class="header">Должность</span><span>${json[index]["Должность"]}</span></div>`;
+    // if (json[index]["Город"] != undefined) vacancy_div_html += `<div><span class="header">Город</span><span>${json[index]["Город"]}</span></div>`;
+    // if (json[index]["Адрес"] != undefined) vacancy_div_html += `<div><span class="header">Адрес</span><span>${json[index]["Адрес"]}</span></div>`;
+    // // if (json[index]["Общая потребность 8 только день"] != undefined) vacancy_div_html += `<span>Общая потребность</b>: ${json[index]["Общая потребность 8 только день"]}</span></div>`;
+    // if (json[index]["Возраст"] != undefined) vacancy_div_html += `<div><span class="header">Возраст</span><span>${json[index]["Возраст"]}</span></div>`;
+    // if (json[index]["Гражданство"] != undefined) vacancy_div_html += `<div><span class="header">Гражданство</span><span>${json[index]["Гражданство"]}</span></div>`;
+    // if (json[index]["График"] != undefined) vacancy_div_html += `<div><span class="header">График</span><span>${json[index]["График"]}</span></div>`;
+    // if (json[index]["Частота выплат"] != undefined) vacancy_div_html += `<div><span class="header">Частота выплат</span><span>${json[index]["Частота выплат"]}</span></div>`;
+    // if (json[index]["Оплата за смену ВАХТА"] != undefined) vacancy_div_html += `<div><span class="header">Оплата за смену ВАХТА</span><span>${json[index]["Оплата за смену ВАХТА"]}</span></div>`;
+    // if (json[index]["Оплата за смену МЕСТНЫЕ"] != undefined) vacancy_div_html += `<div><span class="header">Оплата за смену МЕСТНЫЕ</span><span>${json[index]["Оплата за смену МЕСТНЫЕ"]}</span></div>`;
     vacancy_div_html += `</div></div>`;
     vacancy_div.innerHTML = vacancy_div_html;
 }
@@ -135,22 +124,21 @@ function filter_item_click(item) {
         [...item.parentNode.getElementsByClassName("filter_item")].forEach((i) => {
             filter_set[i.getAttribute("data")].delete(i.getElementsByTagName("p")[0].innerText);
             i.className = i.className.split(" ")[0];
-            if (i.getAttribute("data") == "housings") i.getElementsByTagName("span")[0].innerText = "radio_button_unchecked";
+            if (i.getAttribute("data") == "housings" || item.getAttribute("data") == "nutritions") i.getElementsByTagName("span")[0].innerText = "radio_button_unchecked";
             else i.getElementsByTagName("span")[0].innerText = "check_box_outline_blank";
             i.getElementsByTagName("p")[0].style.color = "black";
             i.getElementsByTagName("span")[0].style.color = "black";
         });
         filter_set[item.getAttribute("data")].add(item.getElementsByTagName("p")[0].innerText);
-        if (item.getAttribute("data") != "housings") {
-            item.getElementsByTagName("span")[0].innerText = "select_check_box";
-        } else item.getElementsByTagName("span")[0].innerText = "radio_button_checked";
+        if (item.getAttribute("data") != "housings" && item.getAttribute("data") != "nutritions") item.getElementsByTagName("span")[0].innerText = "select_check_box";
+        else item.getElementsByTagName("span")[0].innerText = "radio_button_checked";
         item.className += " active";
         item.getElementsByTagName("p")[0].style.color = "#FE5E00";
         item.getElementsByTagName("span")[0].style.color = "#FE5E00";
     } else {
         filter_set[item.getAttribute("data")].delete(item.getElementsByTagName("p")[0].innerText);
         item.className = item.className.split(" ")[0];
-        if (item.getAttribute("data") == "housings") item.getElementsByTagName("span")[0].innerText = "radio_button_unchecked";
+        if (item.getAttribute("data") == "housings" || item.getAttribute("data") == "nutritions") item.getElementsByTagName("span")[0].innerText = "radio_button_unchecked";
         else item.getElementsByTagName("span")[0].innerText = "check_box_outline_blank";
         item.getElementsByTagName("p")[0].style.color = "black";
         item.getElementsByTagName("span")[0].style.color = "black";
@@ -168,10 +156,8 @@ function render_filter(indexes) {
                 <div class="name"><h3 class="project">${json[index]["Проект"]}</h5></div>
                 <div class="description">
                     <div><span class="header">Должность</span><span>${job}</span></div>
-                    <div><span class="header">Возраст</span><span>${json[index]["Возраст"]}</span></div>
                     <div><span class="header">Город</span><span>${city}</span></div>
-                    <div><span class="header">Оплата за смену ВАХТА</span><span>${json[index]["Оплата за смену ВАХТА"]}</span></div>
-                    <div><span class="header">Оплата за смену МЕСТНЫЕ</span><span>${json[index]["Оплата за смену МЕСТНЫЕ"]}</span></div>
+                    <div><span class="header">Оплата за смену</span><span>${json[index]["Оплата за смену"]}</span></div>
                 </div>
             </li>
         <br>`;
@@ -181,7 +167,8 @@ function render_filter(indexes) {
             ${vacancies}
         </ul>
     <br>`;
-    document.getElementById("vacancies").innerHTML = html_vacancies_list;
+    if (!indexes.size) document.getElementById("vacancies").innerHTML = `<p class="not_found">Вакансии не найдены. Попробуйте другие фильтры</p>`;
+    else document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
 function filter_vacancies() {
@@ -191,14 +178,18 @@ function filter_vacancies() {
             if (filtered_indexes.size == 0) {
                 for (let k in fields[i][j]) {
                     let min_price = Infinity;
-                    try { JSON.stringify(json[fields[i][j][k]]["Оплата за смену ВАХТА"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));}); } catch (e) {}
-                    try { JSON.stringify(json[fields[i][j][k]]["Оплата за смену МЕСТНЫЕ"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));}); } catch (e) {}
-                    let address = JSON.stringify(json[fields[i][j][k]]["Адрес"]).toLowerCase();
-                    let housing = address.includes("общ") || address.includes("кварт") || address.includes("засел");
+                    try { JSON.stringify(json[fields[i][j][k]]["Оплата за смену"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));}); } catch (e) {}
+                    // try { JSON.stringify(json[fields[i][j][k]]["Оплата за смену МЕСТНЫЕ"]).match(/[0-9 ]+/g).forEach((item) => {if (item.replaceAll(" ", "").length > 2 && parseInt(item.replaceAll(" ", "")) < min_price) min_price = parseInt(item.replaceAll(" ", ""));}); } catch (e) {}
+                    let housing = JSON.stringify(json[fields[i][j][k]]["Наличие проживания"]).toLowerCase().includes("да");
+                    let nutrition = JSON.stringify(json[fields[i][j][k]]["Наличие питания"]).toLowerCase().includes("да");
                     if (min_price > parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value) || !parseInt(document.getElementById("payment_from").getElementsByTagName("input")[0].value)) {
                         try {
-                            if (document.getElementById("housings").getElementsByClassName("active")[0].getElementsByTagName("p")[0].innerText.toLowerCase() == "да" && housing) filtered_indexes.add(fields[i][j][k]);
-                            else if (document.getElementById("housings").getElementsByClassName("active")[0].getElementsByTagName("p")[0].innerText.toLowerCase() == "нет" && !housing) filtered_indexes.add(fields[i][j][k]);
+                            let exists = true;
+                            if (document.getElementById("housings").getElementsByClassName("active")[0].getElementsByTagName("p")[0].innerText.toLowerCase() == "да" && !housing) exists = false;
+                            else if (document.getElementById("housings").getElementsByClassName("active")[0].getElementsByTagName("p")[0].innerText.toLowerCase() == "нет" && housing) exists = false;
+                            if (document.getElementById("nutritions").getElementsByClassName("active")[0].getElementsByTagName("p")[0].innerText.toLowerCase() == "да" && !nutrition) exists = false;
+                            else if (document.getElementById("nutritions").getElementsByClassName("active")[0].getElementsByTagName("p")[0].innerText.toLowerCase() == "нет" && nutrition) exists = false;
+                            if (exists) filtered_indexes.add(fields[i][j][k]);
                         } catch (e) { filtered_indexes.add(fields[i][j][k]); } 
                     }
                 }
@@ -213,7 +204,6 @@ function filter_vacancies() {
 }
 
 window.onload = () => {
-    document.getElementsByTagName("p")[0].innerText = window.innerWidth + " " + window.innerHeight
     let filter = document.getElementById("filter");
     let filter_button = document.getElementById("filter_button");   
     document.getElementById("filter_button").addEventListener("click", () => {
@@ -256,6 +246,7 @@ window.onload = () => {
     document.getElementById("city").addEventListener("click", event => filter_click(event, "cities"));
     document.getElementById("pay_rate").addEventListener("click", event => filter_click(event, "pay_rates"));
     document.getElementById("housing").addEventListener("click", event => filter_click(event, "housings"));
+    document.getElementById("nutrition").addEventListener("click", event => filter_click(event, "nutritions"));
     document.getElementById("payment").addEventListener("click", (event) => {
         let payment_from = document.getElementById("payment_from");
         let arrow = event.currentTarget.getElementsByTagName("span")[0];

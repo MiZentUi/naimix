@@ -61,7 +61,11 @@
                     <li class="filter_item" data="housings" onclick="filter_item_click(this);"><p>Да</p><span class="material-symbols-rounded">radio_button_unchecked</span></li>
                     <li class="filter_item" data="housings" onclick="filter_item_click(this);"><p>Нет</p><span class="material-symbols-rounded">radio_button_unchecked</span></li>
                 </ul>
-                <div id="nutrition" style="display: none;" class="item"><p>Наличие питания</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <div id="nutrition" class="item"><p>Наличие питания</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <ul id="nutritions">
+                    <li class="filter_item" data="nutritions" onclick="filter_item_click(this);"><p>Да</p><span class="material-symbols-rounded">radio_button_unchecked</span></li>
+                    <li class="filter_item" data="nutritions" onclick="filter_item_click(this);"><p>Нет</p><span class="material-symbols-rounded">radio_button_unchecked</span></li>
+                </ul>
                 <div id="payment" class="item"><p>Оплата за смену</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
                 <div id="payment_from"><span>От</span><input type="text" placeholder="0" oninput="filter_vacancies();"><span>рублей</span></div>
                 <div id="pay_rate" class="item"><p>Частота выплат</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
@@ -72,15 +76,16 @@
     </div>
     <div id="vacancy"></div>
     <div id="request">
-        <div id="name"><p><b>Ваше имя</b></p><input type="text"></div>
-        <div id="phone"><p><b>Ваш номер телефона</b></p><input type="text"></div>
-        <div id="phone"><p><b>Из какого Вы города?</b></p><input type="text"></div>
-        <div id="communication"><p><b>Удобный способ связи</b></p><textarea type="text" rows="5"></textarea></div>
+        <div id="name"><label>Имя</label><input type="text"></div>
+        <div id="phone"><label>Номер телефона</label><input type="text"></div>
+        <div id="phone"><label>Ваш город</label><input type="text"></div>
+        <div id="communication"><label>Удобный способ связи</label><textarea type="text" rows="5"></textarea></div>
     </div>
     <div id="support">
-        <div id="email"><p><b>Адрес электронной почты</b></p><input type="email"></div>    
-        <div id="topic"><p><b>Тема</b></p><input type="text"></div>
-        <div id="description"><p><b>Описание</b></p><textarea type="text" rows="5"></textarea></div>
+        <div id="email"><label>Адрес электронной почты</label><input type="email"></div>    
+        <div id="topic"><label>Тема</label><input type="text"></div>
+        <div id="description"><label>Описание</label><textarea type="text" rows="5"></textarea></div>
+        <button id="support_send">Отправить</button>
     </div>
     <div id="contacts">
         <h6>Контакты</h6>

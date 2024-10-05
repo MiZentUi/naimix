@@ -207,7 +207,7 @@ div.filter div {
     margin: auto 10px;
     width: inherit;
     padding: 10px;
-    color: gray;
+    color: black;
     box-sizing: border-box;
 }
 
@@ -216,7 +216,7 @@ div.filter div {
 }
 
 #payment_from span {
-    margin: auto 5px auto autos;
+    margin: auto 5px auto auto;
     font-size: 15px;
     font-family: 'Roboto', Arial, sans-serif;
     color: #FE5E00;
@@ -332,9 +332,11 @@ div.filter div {
     flex: 2;
     height: 50px;
     background-color: white;
-    color: gray;
+    color: black;
     margin: 0 auto 0 auto;
-    border-width: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E1E1E1;
     padding: 20px;
     font-size: 14px;
     width: 100%;
@@ -344,6 +346,7 @@ div.filter div {
 
 #request div input:focus-visible {
     outline: #F5F5F5 auto 0;
+    border-color: #FE5E00;
 }
 
 #request {
@@ -356,16 +359,20 @@ div.filter div {
     display: grid;
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto 20px auto;
 }
 
-#request div p {
+#request div label {
     color: #FE5E00;
     font-family: 'Roboto', Arial, sans-serif;
-    font-size: 15px;
-    margin: 0 0 5px 20px;
+    font-size: 12px;
+    margin: 0 0 5px 15px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    background-color:white;
+    padding: 0 5px;
 }
 
 #request div textarea {
@@ -373,7 +380,9 @@ div.filter div {
     color: gray;
     margin: 0 auto 0 auto;
     align-self: center;
-    border-width: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E1E1E1;
     padding: 20px;
     font-size: 14px;
     width: 100%;
@@ -384,15 +393,18 @@ div.filter div {
 
 #request div textarea:focus-visible {
     outline-width: 0;
+    border-color: #FE5E00;
 }
 
 #support div input {
     flex: 2;
     height: 50px;
     background-color: white;
-    color: gray;
+    color: black;
     margin: 0 auto 0 auto;
-    border-width: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E1E1E1;
     padding: 20px;
     font-size: 14px;
     width: 100%;
@@ -402,6 +414,7 @@ div.filter div {
 
 #support div input:focus-visible {
     outline: #F5F5F5 auto 0;
+    border-color: #FE5E00;
 }
 
 #support {
@@ -414,24 +427,41 @@ div.filter div {
     display: grid;
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
-    max-width: 80%;
+    max-width: 90%;
     margin: 0 auto 20px auto;
 }
 
-#support div p {
+#support div label {
     color: #FE5E00;
     font-family: 'Roboto', Arial, sans-serif;
+    font-size: 12px;
+    margin: 0 0 5px 15px;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    background-color:white;
+    padding: 0 5px;
+}
+
+#support button {
+    display: grid;
+    padding: 10px;
+    width: 90%;
+    color: white;
+    background-color: #FE5E00;
+    margin: auto;
     font-size: 15px;
-    margin: 0 0 5px 20px;
+    border-width: 0;
+    border-radius: 10px;
 }
 
 #support div textarea {
-
     color: gray;
     margin: 0 auto 0 auto;
     align-self: center;
-    border-width: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #E1E1E1;
     padding: 20px;
     font-size: 14px;
     width: 100%;
@@ -442,6 +472,7 @@ div.filter div {
 
 #support div textarea:focus-visible {
     outline-width: 0;
+    border-color: #FE5E00;
 }
 
 #contacts {
@@ -479,4 +510,12 @@ div.filter div {
     font-size: 13px;
     color: #282828;
     margin: 0 0 5px 10px;    ;
+}
+
+p.not_found {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-family: 'Roboto', Arial, sans-serif;
+    color: gray;
 }
