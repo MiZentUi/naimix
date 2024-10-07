@@ -5,6 +5,11 @@ body {
     margin: 20px 0 90px 0;
 }
 
+div {
+    transition: max-height, 0.5s linear;
+    /* transition:, 0.5s linear; */
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -43,6 +48,7 @@ body {
 }
 
 #main {
+    overflow: hidden;
     display: block;
 }
 
@@ -70,14 +76,13 @@ body {
 }
 
 #navigation {
-    display: flex;
     position: relative;
-    margin: 0 auto 20px auto;
+    margin: 0 auto 10px auto;
 }
 
 div.filter {
     display: flex;
-    position: relatives;
+    /* position: relative; */
     background-color: #F5F5F5;
     left: 0;
     width: 100%;
@@ -119,13 +124,16 @@ div.filter div {
 }
 
 #filter {
-    display: none;
+    /* display: none; */
+    transition: max-height, 0.5s linear;
     border-radius: 10px;
     background-color: white;
     align-self: center;
-    margin: 0 auto 0 auto;
-    padding: 70px 0 0 0;
+    margin: 0 auto 30px auto;
+    padding: 0px;
     width: 90%;
+    max-height: 0;
+    overflow: hidden;
 }
 
 #filter div.item {
@@ -160,11 +168,14 @@ div.filter div {
 }
 
 #filter ul {
+    max-height: 0px;
     padding: 0;
     margin: auto;
     background-color: white;
     border-radius: 10px;
-    display: none;
+    transition: max-height, 0.5s linear;
+    overflow: hidden;
+    display: block;
 }
 
 #filter ul li {
@@ -192,11 +203,13 @@ div.filter div {
 
 #payment_from {
     box-sizing: border-box;
-    padding: 10px;
+    padding: 0;
     margin: auto;
     background-color: #F5F5F5;
     border-radius: 10px;
-    display: none;
+    overflow: hidden;
+    max-height: 0;
+    /* display: none; */
 }
 
 #payment_from input {
@@ -294,8 +307,18 @@ div.filter div {
 }
 
 #vacancy {
-    display: none;
-    padding: 0 10px;
+    height: 100%;
+    background-color: white;
+    /* display: none; */
+    /* max-height: 0px; */
+    overflow: scroll;
+    width: -webkit-fill-available;
+    position: fixed;
+    top: 0;
+    /* margin-top: 10px; */
+    z-index: 2;
+    transform: translateX(100vw);
+    padding: 10px;
 }
 
 #vacancy span {
@@ -350,7 +373,12 @@ div.filter div {
 }
 
 #request {
-    display: none;
+    transition: max-height, 0.5s linear;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 50px;
+    margin-bottom: 250px;
+    /* display: none; */
     position: relative;
 }
 
@@ -360,7 +388,7 @@ div.filter div {
     background-color: white;
     border-radius: 10px;
     max-width: 90%;
-    margin: 0 auto 20px auto;
+    margin: 5px auto 15px auto;
 }
 
 #request div label {
@@ -371,7 +399,7 @@ div.filter div {
     position: absolute;
     top: -5px;
     left: 0;
-    background-color:white;
+    background-color: white;
     padding: 0 5px;
 }
 
@@ -439,13 +467,14 @@ div.filter div {
     position: absolute;
     top: -5px;
     left: 0;
-    background-color:white;
+    background-color: white;
     padding: 0 5px;
 }
 
 #support button {
     display: grid;
     padding: 10px;
+    cursor: pointer;
     width: 90%;
     color: white;
     background-color: #FE5E00;
@@ -491,7 +520,7 @@ div.filter div {
     font-size: 20px;
 }
 
-#contacts > div {
+#contacts>div {
     background-color: white;
     padding: 10px;
     border-radius: 10px;
@@ -509,7 +538,8 @@ div.filter div {
 #contacts div p {
     font-size: 13px;
     color: #282828;
-    margin: 0 0 5px 10px;    ;
+    margin: 0 0 5px 10px;
+    ;
 }
 
 p.not_found {
@@ -518,4 +548,38 @@ p.not_found {
     margin: auto;
     font-family: 'Roboto', Arial, sans-serif;
     color: gray;
+}
+
+.close-right {
+    animation-name: open_move;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+.open-right {
+    animation-name: close_move;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes open_move {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(100vw);
+    }
+}
+
+@keyframes close_move {
+    0% {
+        transform: translateX(100vw);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }

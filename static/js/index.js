@@ -1,17 +1,23 @@
 // fetch("/get_tt").then(r =>  r.json().then(data => (new PublicGoogleSheetsParser(data["table"], {"useFormat": true}).parse().then((data) => {json = data; render_vacancies(data)}))))
 (new PublicGoogleSheetsParser("14jj4QBrpZOzzasHKKv-XzECEK5C2m20B1FLOBULodng", {"useFormat": true}).parse().then((data) => {json = data; render_vacancies(data)}))
-let fields = {"cities": {}, "jobs": {}, "housings": {}, "nutritions": {}, "payments": {}, "pay_rates": {}}
-let filter_set = {"cities": new Set(), "jobs": new Set(), "housings": new Set(), "nutritions": new Set(), "payments": new Set(), "pay_rates": new Set()}
+let fields = {"cities": {}, "jobs": {}, "housings": {}, "nutritions": {}, "payments": {}, "pay_rates": {}, "paperworks": {}}
+let filter_set = {"cities": new Set(), "jobs": new Set(), "housings": new Set(), "nutritions": new Set(), "payments": new Set(), "pay_rates": new Set(), "paperworks": new Set()}
+let currentScroll = 0;
 
 function render_vacancies(json) {
-    let vacancies = "", cities_items = "", pay_rates_items = "", jobs_items = "";
+    let vacancies = "", cities_items = "", pay_rates_items = "", jobs_items = "", paperworks_items = "";
     json.forEach((item, index) => {
         let city = item["Город"]
         let job = item["Должность"]
         let pay_rate = item["Частота выплат"]
+        let paperwork = item["Вид оформления"]
         if (pay_rate != undefined) {
             if (!fields["pay_rates"].hasOwnProperty(pay_rate)) fields["pay_rates"][pay_rate] = [];
             fields["pay_rates"][pay_rate].push(index);
+        }
+        if (paperwork != undefined) {
+            if (!fields["paperworks"].hasOwnProperty(paperwork)) fields["paperworks"][paperwork] = [];
+            fields["paperworks"][paperwork].push(index);
         }
         if (!fields["cities"].hasOwnProperty(city)) fields["cities"][city] = [];
         if (!fields["jobs"].hasOwnProperty(job)) fields["jobs"][job] = [];
@@ -33,9 +39,15 @@ function render_vacancies(json) {
             <li class="filter_item" data="pay_rates" onclick="filter_item_click(this);"><p>${i}</p><span class="material-symbols-rounded">check_box_outline_blank</span></li>
         `;
     }
+    for (let i in fields["paperworks"]) {
+        if (i != undefined) paperworks_items += `
+            <li class="filter_item" data="paperworks" onclick="filter_item_click(this);"><p>${i}</p><span class="material-symbols-rounded">check_box_outline_blank</span></li>
+        `;
+    }
     document.getElementById("cities").innerHTML = cities_items;
     document.getElementById("jobs").innerHTML = jobs_items;
     document.getElementById("pay_rates").innerHTML = pay_rates_items;
+    document.getElementById("paperworks").innerHTML = paperworks_items;
     // document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
@@ -56,18 +68,25 @@ function render_vacancy(index) {
     // if (json[index]["Частота выплат"] != undefined) vacancy_div_html += `<div><span class="header">Частота выплат</span><span>${json[index]["Частота выплат"]}</span></div>`;
     // if (json[index]["Оплата за смену ВАХТА"] != undefined) vacancy_div_html += `<div><span class="header">Оплата за смену ВАХТА</span><span>${json[index]["Оплата за смену ВАХТА"]}</span></div>`;
     // if (json[index]["Оплата за смену МЕСТНЫЕ"] != undefined) vacancy_div_html += `<div><span class="header">Оплата за смену МЕСТНЫЕ</span><span>${json[index]["Оплата за смену МЕСТНЫЕ"]}</span></div>`;
-    vacancy_div_html += `</div></div>`;
+    vacancy_div_html += `</div></div>
+            <div id="request">
+                    <div id="name"><label>Имя</label><input type="text"></div>
+                    <div id="phone"><label>Номер телефона</label><input type="text"></div>
+                    <div id="client_city"><label>Ваш город</label><input type="text"></div>
+                    <div id="communication"><label>Удобный способ связи</label><textarea type="text" rows="5"></textarea></div>
+            </div>`;
     vacancy_div.innerHTML = vacancy_div_html;
 }
 
 function open_vacancy(vacancy_index) {
     let main = document.getElementById("main");
     let vacancy_div = document.getElementById("vacancy")
-    main.style.display = "none";
-    document.getElementById("menu").style.display = "none";
     render_vacancy(vacancy_index);
-    vacancy_div.style.display = "block";
-    window.scrollTo(0, 0);
+    vacancy_div.classList.replace("close-right", "open-right");
+    if (!vacancy_div.classList.contains("open-right")) vacancy_div.classList.add("open-right");
+    currentScroll = window.scrollY;
+    setTimeout(() => {main.style.maxHeight = "0"; document.getElementById("menu").style.display = "none";}, 500);
+    main.style.overflowY = "hidden";
     window.Telegram.WebApp.BackButton.onClick(back_to_main);
     window.Telegram.WebApp.BackButton.show();
     window.Telegram.WebApp.MainButton.text = "Откликнуться";
@@ -78,45 +97,63 @@ function open_vacancy(vacancy_index) {
 
 function back_to_main() {
     let main = document.getElementById("main");
-    let vacancy_div = document.getElementById("vacancy")
-    main.style.display = "block";
-    vacancy_div.style.display = "none";
-    window.scrollTo(0, 0);
+    let vacancy_div = document.getElementById("vacancy");
+    main.style.maxHeight = "max-content";
+    // main.style.overflowY = "auto";
+    vacancy_div.classList.replace("open-right", "close-right");
+    // vacancy_div.style.display = "none";
+    window.scrollTo(0, currentScroll);
     document.getElementById("contacts").style.display = "none";
     document.getElementById("support").style.display = "none";
-    document.getElementById("request").style.display = "none";
-    document.getElementById("menu").style.display = "flex";
+    // document.getElementById("request").style.display = "none";
+    document.getElementById("request").style.maxHeight = "0";
+    // document.getElementById("menu").style.display = "flex";
     window.Telegram.WebApp.BackButton.hide();
     window.Telegram.WebApp.MainButton.hide();
 }
 
 function open_request() {
     let request = document.getElementById("request");
-    request.style.display = "block";
+    // request.style.display = "block";
+    request.style.maxHeight = request.scrollHeight + "px";
     window.Telegram.WebApp.MainButton.text = "Отправить";
 }
 
 function filter_click(event, ul_id) {
     let ul = document.getElementById(ul_id);
     let arrow = event.currentTarget.getElementsByTagName("span")[0]
-    if (ul.style.display == "none" || ul.style.display == "") {
+    if (!ul.classList.contains("open")) {
         [...document.getElementsByClassName("item")].forEach((item) => {
             let arrow = item.getElementsByTagName("span")[0];
             arrow.style.transform = "rotate(0)";
             arrow.style.transition = "transform 0.5s";
+            ul.style.maxHeight = "0px";
+            // ul.style.transition = "max-height, 0.5s linear";
         });
         [...document.getElementById("filter").getElementsByTagName("ul")].forEach((item) => {
-            item.style.display = "none";
+            item.style.maxHeight = "0px";
+            // item.style.transition = "max-height, 0.5s linear";
+            if (item.classList.contains("open")) item.classList.toggle("open");
         });
-        document.getElementById("payment_from").style.display = "none";
-        ul.style.display = "block";
+        let payment_from = document.getElementById("payment_from");
+        payment_from.style.padding = "0";
+        payment_from.style.maxHeight = "0px";
+        // payment_from.style.transition = "max-height, 0.5s linear";
+        if (payment_from.classList.contains("open")) payment_from.classList.toggle("open");
+        // ul.style.display = "block";
+        
         arrow.style.transform = "rotate(90deg)";
         arrow.style.transition = "transform 0.5s";
+        ul.style.maxHeight = ul.scrollHeight + "px";
+        // ul.style.transition = "max-height, 0.5s linear";
     } else {
-        ul.style.display = "none";
         arrow.style.transform = "rotate(0)";
         arrow.style.transition = "transform 0.5s";
+        ul.style.maxHeight = "0px";
+        // ul.style.transition = "max-height, 0.5s linear";
+        // ul.style.display = "none";
     }
+    ul.classList.toggle("open");
 }
 
 function filter_item_click(item) {
@@ -167,7 +204,7 @@ function render_filter(indexes) {
             ${vacancies}
         </ul>
     <br>`;
-    if (!indexes.size) document.getElementById("vacancies").innerHTML = `<p class="not_found">Вакансии не найдены. Попробуйте другие фильтры</p>`;
+    if (!indexes.size && document.getElementsByClassName("active").length) document.getElementById("vacancies").innerHTML = `<p class="not_found">Вакансии не найдены. Попробуйте другие фильтры</p>`;
     else document.getElementById("vacancies").innerHTML = html_vacancies_list;
 }
 
@@ -207,31 +244,53 @@ window.onload = () => {
     let filter = document.getElementById("filter");
     let filter_button = document.getElementById("filter_button");   
     document.getElementById("filter_button").addEventListener("click", () => {
-        if (filter.style.display == "none" || filter.style.display == "") {
-            filter.style.display = "block";
-            filter_button.style.position = "absolute";
+        if (!filter.classList.contains("open")) {
+            // filter.style.display = "block";
+            filter.style.padding = "0";
+            let max_height = 0;
+            let uls = filter.getElementsByTagName("ul");
+            for (let i = 0; i < uls.length; i++) {
+                // max_height += uls[i].scrollHeight;
+                if (uls[i].scrollHeight > max_height) max_height = uls[i].scrollHeight;
+                console.log(uls[i].scrollHeight)
+            }
+            max_height += filter.scrollHeight + 500;
+            filter.style.maxHeight = "0px";
+            filter.style.maxHeight = max_height + "px";
+            setTimeout(() => { filter_button.style.position = "relative"; }, 0);
+            // filter.style.transition = "max-height, 0.5s linear";
+            if (filter.classList.contains("open")) filter.classList.toggle("open");
         } else {
-            filter.style.display = "none";
-            filter_button.style.position = "relative";
+            // filter.style.padding = "0";
+            filter.style.maxHeight = "0px";
+            // filter.style.transition = "max-height, 0.5s linear";
+            // filter.style.display = "none";
+            setTimeout(() => { filter_button.style.position = "absolute"; }, 500);
         }
+        filter.classList.toggle("open");
     });
     document.getElementById("menu").addEventListener("click", (event) => {
         let element = event.target.closest("div");
         switch (element.getAttribute("id")) {
             case "main-button":
-                back_to_main();
+                document.getElementById("main").style.display = "block";
+                document.getElementById("contacts").style.display = "none";
+                document.getElementById("support").style.display = "none";
+                window.scrollTo(0, currentScroll);
                 break;
             case "support-button":
+                currentScroll = window.scrollY;
                 document.getElementById("main").style.display = "none";
                 document.getElementById("contacts").style.display = "none";
                 document.getElementById("support").style.display = "block";
                 break;
-                case "contacts-button":
-                    document.getElementById("main").style.display = "none";
-                    document.getElementById("support").style.display = "none";
-                    document.getElementById("contacts").style.display = "block";
-                    default:
-                        break;
+            case "contacts-button":
+                currentScroll = window.scrollY;
+                document.getElementById("main").style.display = "none";
+                document.getElementById("support").style.display = "none";
+                document.getElementById("contacts").style.display = "block";
+            default:
+                break;
         }
         [...event.currentTarget.getElementsByTagName("div")].forEach((item) => {
             item.style.color = "black";
@@ -245,27 +304,39 @@ window.onload = () => {
     document.getElementById("job").addEventListener("click", event => filter_click(event, "jobs"));
     document.getElementById("city").addEventListener("click", event => filter_click(event, "cities"));
     document.getElementById("pay_rate").addEventListener("click", event => filter_click(event, "pay_rates"));
+    document.getElementById("paperwork").addEventListener("click", event => filter_click(event, "paperworks"));
     document.getElementById("housing").addEventListener("click", event => filter_click(event, "housings"));
     document.getElementById("nutrition").addEventListener("click", event => filter_click(event, "nutritions"));
     document.getElementById("payment").addEventListener("click", (event) => {
         let payment_from = document.getElementById("payment_from");
         let arrow = event.currentTarget.getElementsByTagName("span")[0];
-        if (payment_from.style.display == "none" || payment_from.style.display == "") {
+        if (!payment_from.classList.contains("open")) {
             [...document.getElementsByClassName("item")].forEach((item) => {
                 let arrow = item.getElementsByTagName("span")[0];
                 arrow.style.transform = "rotate(0)";
                 arrow.style.transition = "transform 0.5s";
+                payment_from.style.maxHeight = "0px";
+                payment_from.style.transition = "max-height, 0.5s linear";
             });
             [...document.getElementById("filter").getElementsByTagName("ul")].forEach((item) => {
-                item.style.display = "none";
+                item.style.padding = "0";
+                item.style.maxHeight = "0px";
+                item.style.transition = "max-height, 0.5s linear";
+                if (item.classList.contains("open")) item.classList.toggle("open");
             });
-            payment_from.style.display = "flex";
+            payment_from.style.padding = "10px";
             arrow.style.transform = "rotate(90deg)";
             arrow.style.transition = "transform 0.5s";
+            payment_from.style.maxHeight = payment_from.scrollHeight * 4 + "px";
+            payment_from.style.transition = "max-height, 0.5s linear";
         } else {
-            payment_from.style.display = "none";
+            payment_from.style.padding = "0";
+            
             arrow.style.transform = "rotate(0)";
             arrow.style.transition = "transform 0.5s";
+            payment_from.style.maxHeight = "0px";
+            payment_from.style.transition = "max-height, 0.5s linear";
         }
+        payment_from.classList.toggle("open");
     });
 }

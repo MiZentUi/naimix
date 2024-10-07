@@ -50,12 +50,16 @@
                     <rect width="38" height="38" rx="5" fill="#F5F5F5"/>
                     <path d="M25 15.25H18.25M20.5 22.75H13.75M20.5 22.75C20.5 23.9926 21.5074 25 22.75 25C23.9926 25 25 23.9926 25 22.75C25 21.5074 23.9926 20.5 22.75 20.5C21.5074 20.5 20.5 21.5074 20.5 22.75ZM17.5 15.25C17.5 16.4926 16.4926 17.5 15.25 17.5C14.0074 17.5 13 16.4926 13 15.25C13 14.0074 14.0074 13 15.25 13C16.4926 13 17.5 14.0074 17.5 15.25Z" stroke="#FE5E00" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>    
-            </div>
+            </div></div>
             <div id="filter">
                 <div id="job" class="item"><p>Должность</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
                 <ul id="jobs"></ul>
                 <div id="city" class="item"><p>Город</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
                 <ul id="cities"></ul>
+                <div id="pay_rate" class="item"><p>Частота выплат</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <ul id="pay_rates"></ul>
+                <div id="paperwork" class="item"><p>Вид оформления</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
+                <ul id="paperworks"></ul>
                 <div id="housing" class="item"><p>Наличие проживания</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
                 <ul id="housings">
                     <li class="filter_item" data="housings" onclick="filter_item_click(this);"><p>Да</p><span class="material-symbols-rounded">radio_button_unchecked</span></li>
@@ -68,19 +72,10 @@
                 </ul>
                 <div id="payment" class="item"><p>Оплата за смену</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
                 <div id="payment_from"><span>От</span><input type="text" placeholder="0" oninput="filter_vacancies();"><span>рублей</span></div>
-                <div id="pay_rate" class="item"><p>Частота выплат</p><div><span class="material-symbols-rounded">keyboard_arrow_right</span></div></div>
-                <ul id="pay_rates" style="margin-bottom: 20px;"></ul>
             </div>
-        </div>
         <div id="vacancies"></div>
     </div>
     <div id="vacancy"></div>
-    <div id="request">
-        <div id="name"><label>Имя</label><input type="text"></div>
-        <div id="phone"><label>Номер телефона</label><input type="text"></div>
-        <div id="phone"><label>Ваш город</label><input type="text"></div>
-        <div id="communication"><label>Удобный способ связи</label><textarea type="text" rows="5"></textarea></div>
-    </div>
     <div id="support">
         <div id="email"><label>Адрес электронной почты</label><input type="email"></div>    
         <div id="topic"><label>Тема</label><input type="text"></div>
