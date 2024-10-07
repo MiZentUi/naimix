@@ -257,7 +257,7 @@ window.onload = () => {
             max_height += filter.scrollHeight + 500;
             filter.style.maxHeight = "0px";
             filter.style.maxHeight = max_height + "px";
-            setTimeout(() => { filter_button.style.position = "relative"; }, 0);
+            // setTimeout(() => { filter_button.style.position = "relative"; }, 0);
             // filter.style.transition = "max-height, 0.5s linear";
             if (filter.classList.contains("open")) filter.classList.toggle("open");
         } else {
@@ -265,7 +265,7 @@ window.onload = () => {
             filter.style.maxHeight = "0px";
             // filter.style.transition = "max-height, 0.5s linear";
             // filter.style.display = "none";
-            setTimeout(() => { filter_button.style.position = "absolute"; }, 500);
+            // setTimeout(() => { filter_button.style.position = "absolute"; }, 500);
         }
         filter.classList.toggle("open");
     });
