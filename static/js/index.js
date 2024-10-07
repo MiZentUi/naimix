@@ -85,7 +85,7 @@ function open_vacancy(vacancy_index) {
     vacancy_div.classList.replace("close-right", "open-right");
     if (!vacancy_div.classList.contains("open-right")) vacancy_div.classList.add("open-right");
     currentScroll = window.scrollY;
-    setTimeout(() => {main.style.maxHeight = "0"; document.getElementById("menu").style.display = "none";}, 500);
+    setTimeout(() => {main.style.maxHeight = "0"; }, 500);
     main.style.overflowY = "hidden";
     window.Telegram.WebApp.BackButton.onClick(back_to_main);
     window.Telegram.WebApp.BackButton.show();
