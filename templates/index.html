@@ -37,6 +37,7 @@
             <p>Контакты</p>
         </div>
     </div>
+    <div id="snackbar"><p></p></div>
     <div id="main">
         <div id="head">
             <img class="logo" src="static/img/logo.png">
@@ -75,12 +76,24 @@
             </div>
         <div id="vacancies"></div>
     </div>
-    <div id="vacancy"></div>
+    <div id="vacancy">
+        <div id="this_vacancy"></div>
+        <div id="request">
+            <div id="name"><label>Имя</label><input type="text"></div>
+            <div id="phone"><label>Номер телефона</label><input type="text"></div>
+            <div id="client_city"><label>Ваш город</label><input type="text"></div>
+            <div id="communication"><label>Удобный способ связи</label><textarea type="text" rows="5"></textarea></div>
+        </div>
+    </div>
     <div id="support">
         <div id="email"><label>Адрес электронной почты</label><input type="email"></div>    
         <div id="topic"><label>Тема</label><input type="text"></div>
         <div id="description"><label>Описание</label><textarea type="text" rows="5"></textarea></div>
-        <button id="support_send">Отправить</button>
+        <button id="support_button">Отправить</button>
+    </div>
+    <div id="faq">
+        <div id="faq_list"></div>
+        <div id="answer"></div>
     </div>
     <div id="contacts">
         <h6>Контакты</h6>
@@ -89,7 +102,7 @@
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.25 11.075V12.95C14.2507 13.1241 14.2151 13.2964 14.1453 13.4558C14.0756 13.6153 13.9733 13.7585 13.8451 13.8762C13.7168 13.9938 13.5654 14.0834 13.4005 14.1392C13.2356 14.195 13.0609 14.2157 12.8875 14.2C10.9643 13.991 9.11689 13.3338 7.49377 12.2812C5.98366 11.3217 4.70335 10.0414 3.74377 8.53125C2.68751 6.90075 2.03017 5.04437 1.82502 3.1125C1.8094 2.93967 1.82994 2.76547 1.88533 2.60101C1.94072 2.43655 2.02975 2.28543 2.14675 2.15726C2.26374 2.0291 2.40615 1.92669 2.56489 1.85658C2.72363 1.78646 2.89523 1.75016 3.06877 1.75H4.94377C5.24709 1.74701 5.54114 1.85442 5.77112 2.05221C6.0011 2.24999 6.15132 2.52465 6.19377 2.825C6.27291 3.42504 6.41968 4.0142 6.63127 4.58125C6.71536 4.80495 6.73356 5.04807 6.68371 5.2818C6.63386 5.51553 6.51806 5.73007 6.35002 5.9L5.55627 6.69375C6.44599 8.25846 7.74155 9.55403 9.30627 10.4437L10.1 9.65C10.2699 9.48196 10.4845 9.36615 10.7182 9.31631C10.9519 9.26646 11.1951 9.28466 11.4188 9.36875C11.9858 9.58034 12.575 9.72711 13.175 9.80625C13.4786 9.84908 13.7559 10.002 13.9541 10.2359C14.1523 10.4699 14.2576 10.7685 14.25 11.075Z" stroke="#FE5E00" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                <span class="text">8 (800) 700-95-77</span>
+                <span class="text">{{ config_json["phone"] }}</span>
             </div>
         </div>
         <div>
@@ -98,7 +111,7 @@
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.25 4.875L8.64375 8.4375C8.45079 8.55839 8.2277 8.62251 8 8.62251C7.7723 8.62251 7.54921 8.55839 7.35625 8.4375L1.75 4.875M3 3H13C13.6904 3 14.25 3.55964 14.25 4.25V11.75C14.25 12.4404 13.6904 13 13 13H3C2.30964 13 1.75 12.4404 1.75 11.75V4.25C1.75 3.55964 2.30964 3 3 3Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                
-                <span class="text">mail@helpresource.ru</span>
+                <span class="text">{{ config_json["client_email"] }}</span>
             </div>
         </div>
         <div>
@@ -107,7 +120,7 @@
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M14.25 4.875L8.64375 8.4375C8.45079 8.55839 8.2277 8.62251 8 8.62251C7.7723 8.62251 7.54921 8.55839 7.35625 8.4375L1.75 4.875M3 3H13C13.6904 3 14.25 3.55964 14.25 4.25V11.75C14.25 12.4404 13.6904 13 13 13H3C2.30964 13 1.75 12.4404 1.75 11.75V4.25C1.75 3.55964 2.30964 3 3 3Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                
-            <span class="text">kp@helpresource.ru</span>
+            <span class="text">{{ config_json["provider_email"] }}</span>
             </div>
         </div>
         <div>
@@ -115,16 +128,16 @@
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M8 4.25V8H5.1875M14.25 8C14.25 11.4518 11.4518 14.25 8 14.25C4.54822 14.25 1.75 11.4518 1.75 8C1.75 4.54822 4.54822 1.75 8 1.75C11.4518 1.75 14.25 4.54822 14.25 8Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                
-                <span class="text">ПН-ПТ с 9:00 до 18:00</span>
+                <span class="text">{{ config_json["schedule"] }}</span>
             </div>
         </div>
-        <div>
+        <div style="display: none;">
             <div>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 6.75C13 9.87063 9.53812 13.1206 8.37562 14.1244C8.26733 14.2058 8.1355 14.2498 8 14.2498C7.8645 14.2498 7.73267 14.2058 7.62438 14.1244C6.46188 13.1206 3 9.87063 3 6.75C3 5.42392 3.52678 4.15215 4.46447 3.21447C5.40215 2.27678 6.67392 1.75 8 1.75C9.32608 1.75 10.5979 2.27678 11.5355 3.21447C12.4732 4.15215 13 5.42392 13 6.75Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M8 8.625C9.03553 8.625 9.875 7.78553 9.875 6.75C9.875 5.71447 9.03553 4.875 8 4.875C6.96447 4.875 6.125 5.71447 6.125 6.75C6.125 7.78553 6.96447 8.625 8 8.625Z" stroke="#FE5E00" stroke-width="0.833333" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>                
-                <span class="text">111524 г. Москва,<br>ул. Электродная, д. 2, <br>стр. 12-13-14, оф. №32</span>
+                <span class="text">{{ config_json["address"] }}</span>
             </div>
         </div>
     </div>

@@ -13,9 +13,12 @@ import aiogram.utils.keyboard
 
 dispatcher = aiogram.Dispatcher(storage=aiogram.fsm.storage.memory.MemoryStorage())
 
+with open("config.json", "r") as config_file:
+        config = json.load(config_file)
+
 @dispatcher.message(aiogram.filters.Command("start"))
 async def start_message(message: aiogram.types.Message):
-    await message.answer("Добро пожаловать в HelpResource!", reply_markup=aiogram.types.InlineKeyboardMarkup(inline_keyboard=[[aiogram.types.InlineKeyboardButton(text="Menu", web_app=aiogram.types.WebAppInfo(url="https://mizentui.github.io/naimix"))]]))
+    await message.answer(config["tg_message"], reply_markup=aiogram.types.InlineKeyboardMarkup(inline_keyboard=[[aiogram.types.InlineKeyboardButton(text="Menu", web_app=aiogram.types.WebAppInfo(url=config["url"]))]]))
 
 @dispatcher.message()
 async def get_data(message):

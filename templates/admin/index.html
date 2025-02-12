@@ -1,0 +1,9 @@
+{% extends 'admin/master.html' %}
+{% from "security/_macros.html" import render_field_with_errors, render_field %}
+
+{% block body %}
+<form action="{{ url_for_security('logout') }}" style="position: absolute; top: 10px; right: 100px;" method="POST"
+         name="logout_user_form">
+         <input type="submit" value="Logout">
+        </form>
+{% endblock %}

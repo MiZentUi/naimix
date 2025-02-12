@@ -1,1 +1,10 @@
 aiogram
+flask==3.0.0
+flask_admin
+flask_sqlalchemy
+flask_security==5.5.2
+setuptools
+bitrix24-rest
+sqlalchemy
+gunicorn
+argon2_cffi
